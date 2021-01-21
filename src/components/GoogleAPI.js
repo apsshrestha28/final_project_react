@@ -1,8 +1,7 @@
 import {getDistance} from 'geolib';
 import _ from 'lodash';
-
-
-
+import {Customer} from '../requests';
+import {Session} from '../requests';
 import React, { Component } from 'react';
 
 export default class Locations extends Component{
@@ -18,17 +17,35 @@ export default class Locations extends Component{
   }
   
     componentDidMount(){
-        var dis = getDistance(
-            {latitude: this.state.startLat, longitude: this.state.startLong},
-            {latitude: this.state.destinationLat, longitude: this.state.destinationLong},
-          );
-          this.setState({
-
-            distance:  _.round((dis/1000),1)
-
-          });
-          console.log(this.state.distance);
+      Customer.index()
+       .then(
+         customers => {
+           Session.currentUser().then(current => {
+            console.log(customers);
+            console.log(current);
+            const currentCustomer = customers.filter(customer => customer.id == current.id)[0];
+            console.log(currentCustomer);
+            var dis = getDistance(
+              {latitude: currentCustomer.latitude, longitude: currentCustomer.longitude},
+              {latitude: this.state.destinationLat, longitude: this.state.destinationLong}
+            );
+            this.setState({
+  
+              distance:  _.round((dis/1000),1)
+  
+            });
+            console.log(this.state.distance);
+           })
+           
+         }
+       )
+       
     };
+
+
+
+
+
     render(){
         return(
             <div>{this.state.distance} km away</div>
