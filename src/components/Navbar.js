@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FaCarAlt } from 'react-icons/fa';
@@ -15,28 +14,32 @@ const Navbar =(props) =>{
       </span>
       <span style={{float: 'right'}}>
         <NavLink to ='/'><button className="btn btn-primary btn-sm" type="button">Home</button></NavLink>
-
-        <NavLink to ='/users'><button className ="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem'}}>Drivers List</button></NavLink>
-
-        <NavLink to ='/customer'><button className ="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem', marginRight:'1rem'}}>Customer</button></NavLink>
-
-      
-      {
-        props.currentUser ?(
-              <>
+        {
+        props.currentUser ?
+          (  <>
+              {
+                props.currentUser.driver_license_number ?
+                ( <NavLink to ='/usersprf'><button className ="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem'}}>Drivers</button></NavLink>
+                ):  
+                ( <>
+                    <NavLink to ='/users'><button className ="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem'}}>Drivers List</button></NavLink>
+                    <NavLink to ='/customer'><button className ="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem', marginRight:'1rem'}}>Customer</button></NavLink>
+                  </>
+                )
+              }
               <span style={{color:'white'}}> Hello! {props.currentUser.first_name}</span>
               <button onClick={handleSignOutButtonClick} className="btn btn-danger btn-sm" style={{marginLeft:'1rem'}}>Sign Out
               </button>  
-              </>
-        ):
-        (<>
-        <NavLink to='/sign_in'><button className="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem'}}>SignIn</button></NavLink>
-
-        <NavLink to='/sign_up/driver'> <button className="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem'}}>SignUp As Driver</button></NavLink>
-
-        <NavLink to='/sign_up/customer'><button className="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem'}}>SignUp As Customer</button></NavLink>
-        </>
-        )}
+            </>
+          ):
+          (
+            <>
+              <NavLink to='/sign_in'><button className="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem'}}>SignIn</button></NavLink>
+              <NavLink to='/sign_up/driver'> <button className="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem'}}>SignUp As Driver</button></NavLink>
+              <NavLink to='/sign_up/customer'><button className="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem'}}>SignUp As Customer</button></NavLink>
+            </>
+          )
+        }
       </span>
     </nav>
   );
