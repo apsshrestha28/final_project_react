@@ -24,26 +24,22 @@ class DriverIndexPage extends Component {
   }
   render() { 
     return ( 
-      <main>
+      <main className = "bgImage" style={{height:'400px'}}>
         <br/>
-        <h5 style={{marginLeft:'.5rem'}}>Drivers Nearby :</h5>
-        <ul style={{ padding: '10px', listStyle:'none'}}>
+        <h4 style={{textAlign: 'center', color:'black',border:' 1.5px solid black', backgroundColor:'white'}}>Drivers Nearby :</h4>
+        <ol style={{ marginLeft:'4.3rem', padding: '10px', fontSize:'1.3rem',color:'white'}} >
           {
             this.state.users.map(user => {  
               return(
                 <li key={user.id}>
-
-              <Link key={user.id} to={`/users/${user.id}`}> {user.first_name} {user.last_name}</Link>
-              <br/>
-
-              <GoogleAPI {...user} />
-              <br/>
-               
+                  <u><Link key={user.id} to={`/users/${user.id}`} style={{color:'white'}}> {user.first_name} {user.last_name}</Link></u>
+                  <GoogleAPI {...user} />
+                  <br/> 
                 </li>
               )
             })
           }
-        </ul>
+        </ol>
       </main>
      );
   }

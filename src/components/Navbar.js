@@ -11,12 +11,12 @@ const Navbar =(props) =>{
     <nav className="navbar navbar-dark bg-dark" >
       <span>       
         <FaCarAlt style={{color:'orange', width: '2rem', height:'2.5rem'}}/>
-        <span style={{fontSize:24,color:'white',marginLeft:'.5rem'}}>Ride share</span> 
+        <span style={{fontSize:28,color:'white',marginLeft:'.3rem'}}>Ride share</span> 
       </span>
       <span style={{float: 'right'}}>
         <NavLink to ='/'><button className="btn btn-primary btn-sm" type="button">Home</button></NavLink>
 
-        <NavLink to ='/users'><button className ="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem', marginRight:'1rem'}}>Drivers List</button></NavLink>
+        <NavLink to ='/users'><button className ="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem'}}>Drivers List</button></NavLink>
 
         <NavLink to ='/customer'><button className ="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem', marginRight:'1rem'}}>Customer</button></NavLink>
 
