@@ -64,6 +64,13 @@ export const Customer = {
 }
 
 export const Review = {
+  index(params) {
+    return fetch(`${BASE_URL}/users/${params.id}/reviews`,{
+      headers:{
+        'Cache-Control':'no-cache'
+      }})
+      .then(res => res.json());
+  },
   create(params) {
     return fetch(`${BASE_URL}/users/${params.user_id}/reviews`,{
       method: 'POST',

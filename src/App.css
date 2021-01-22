@@ -9,3 +9,8 @@
   height:640px;
   width:100%;
 }
+.showImage{
+  background-image: url(./style/image/sh.jpg);
+  height:640px;
+  width:100%;
+}
