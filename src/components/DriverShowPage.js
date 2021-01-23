@@ -3,6 +3,7 @@ import {User} from '../requests';
 import DriverDetails from './DriversDetails';
 import {Review} from '../requests';
 import ReviewList from './ReviewList';
+import {Link} from 'react-router-dom';
 
 class DriverShowPage extends Component {
   constructor(props){
@@ -59,12 +60,15 @@ class DriverShowPage extends Component {
         driver_license_number= {this.state.user.driver_license_number}
         description= {this.state.user.description}
         />
+
+     <button><Link to={`/users/${this.state.user.id}/ride_requests`}>RIDE REQUEST </Link></button>
+     
         <form onSubmit={this.handleSubmit} >
           <p>Write a review</p>
 
           <div style={{padding:'7px', fontSize:'1.2rem'}}>  
             <textarea name='body' id='body' cols = '40' rows = '1' style={{border: '1px solid black'}} ></textarea>
-            <button className="btn btn-primary btn-sm" style={{marginLeft:'.6rem', marginTop: '-1.3rem'}} type="submit">Submit</button>
+            <button className="btn btn-primary btn-sm" style={{marginLeft:'.3rem', marginTop: '-1.3rem'}} type="submit">Submit</button>
            
           </div>
         </form>      

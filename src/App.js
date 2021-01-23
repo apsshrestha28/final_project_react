@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import './App.css';
-import { Session } from './requests';
+import { RideRequest, Session } from './requests';
 import SignInPage from './components/SignInPage';
 import SignUpPageForCustomer from './components/SignUpPageForCustomer';
 import SignUpPageForDriver from './components/SignUpPageForDriver';
@@ -10,6 +10,7 @@ import WelcomePage from './components/WelcomePage';
 import AuthRoute from './components/AuthRoute';
 import Navbar from './components/Navbar';
 import CustomerProfilePage from './components/CustomerProfilePage';
+import RideRequestPage from './components/RideRequestPage';
 
 import DriverShowPage from './components/DriverShowPage';
 
@@ -82,7 +83,7 @@ class App extends Component {
            
          <Route exact path = '/customer' component= {CustomerProfilePage} />
          <Route exact path = '/users/:id' component = {DriverShowPage}/>
-          
+          <Route exact path = '/users/:id/ride_requests' component= {RideRequestPage} />
            
           </Switch>
         </BrowserRouter>     
