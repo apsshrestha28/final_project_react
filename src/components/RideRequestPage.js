@@ -43,7 +43,7 @@ const RideRequestPage = (props) => {
           <input type="time" name="ride_time" required= "required" id="ride_time" />
         </div>
 
-        <button type="submit" className="btn btn-primary btn" style={{marginLeft:'20.6rem'}}>Ride Request</button>
+        <button type="submit" className="btn btn-primary btn" style={{marginLeft:'20.6rem'}}>Submit</button>
 
         </form>
       </main>

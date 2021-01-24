@@ -23,7 +23,7 @@ export default class Locations extends Component{
            Session.currentUser().then(current => {
             console.log(customers);
             console.log(current);
-            const currentCustomer = customers.filter(customer => customer.id == current.id)[0];
+            const currentCustomer = customers.filter(customer => customer.id === current.id)[0];
             console.log(currentCustomer);
             var dis = getDistance(
               {latitude: currentCustomer.latitude, longitude: currentCustomer.longitude},

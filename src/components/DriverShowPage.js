@@ -50,18 +50,17 @@ class DriverShowPage extends Component {
   }
   render() { 
     return ( 
-      <main >
+      <main className='showImg' style={{color:'white', padding:'2rem'}}>
         <DriverDetails
         first_name= {this.state.user.first_name}
         last_name= {this.state.user.last_name}
         address= {this.state.user.address}
         email= {this.state.user.email}
         phone_number= {this.state.user.phone_number}
-        driver_license_number= {this.state.user.driver_license_number}
         description= {this.state.user.description}
         />
 
-     <button><Link to={`/users/${this.state.user.id}/ride_requests`}>RIDE REQUEST </Link></button>
+     <Link to={`/users/${this.state.user.id}/ride_requests`}><button className="btn btn-primary btn-sm" type="button">RIDE REQUEST </button></Link>
      
         <form onSubmit={this.handleSubmit} >
           <p>Write a review</p>

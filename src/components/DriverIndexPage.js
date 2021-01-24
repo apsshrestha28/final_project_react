@@ -26,8 +26,8 @@ class DriverIndexPage extends Component {
     return ( 
       <main className = "bgImage" style={{height:'400px'}}>
         <br/>
-        <h4 style={{textAlign: 'center', color:'black',border:' 1.5px solid black', backgroundColor:'white'}}>Drivers Nearby :</h4>
-        <ol style={{ marginLeft:'4.3rem', padding: '10px', fontSize:'1.3rem',color:'white'}} >
+        <h4 style={{textAlign: 'center', color:'black',border:' 1.5px solid black', backgroundColor:'white', marginTop:'-1.5rem'}}>Drivers Nearby :</h4>
+        <ol style={{ marginLeft:'4.3rem', padding: '2px', fontSize:'1.3rem',color:'white'}} >
           {
             this.state.users.map(user => {  
               return(

@@ -6,11 +6,15 @@
 }
 .bgImage{
   background-image: url(./style/image/bg.jpg);
-  height:640px;
   width:100%;
 }
 .showImage{
-  background-image: url(./style/image/sh.jpg);
-  height:640px;
+  background-image: url(./style/image/bg.jpg);
   width:100%;
+
+}
+.showImg{
+  background-image: url(./style/image/bg.jpg);
+  width:100%;
+
 }

@@ -1,19 +1,16 @@
 import React , {Component} from 'react';
-import {Customer} from '../requests';
-
-
+import {Session} from '../requests';
 
 class CustomerProfilePage extends Component {
-
   constructor(props){
     super(props);
     this.state = {
-      customer: []
+      customer: {}
     }
   }
 
   componentDidMount() {
-    Customer.index()
+    Session.currentUser()
       .then((customer) => {
         this.setState((state) => {
            return {
@@ -22,25 +19,16 @@ class CustomerProfilePage extends Component {
       })
   }
   render(){
-    return(
-      
-      <main>
-        <br/>
-        <h5 style= {{marginLeft: '.5rem'}}>Your Profile Page</h5>
-        <div style={{padding: '10px', lifeStyle:'none'}}>
-          {this.state.customer.map(c => {
-            return(
-              < h6 key={c.id}> 
-               <p>Name  = {c.first_name} {c.last_name}</p>
-              <p>Address = {c.address}</p>
-              <p>Email = {c.email}</p> 
-               <p>Phone Number = {c.phone_number} </p> 
-            
-               </h6>
-            
-          )
-          })}
-        
+    return(   
+      <main className='showImage'>
+       
+       <h4 style={{textAlign: 'center', color:'black',border:' 1.5px solid black', backgroundColor:'white'}}>Your Profile Page</h4>
+       <div style={{color:'white', padding:'2px',fontSize:'1.3rem'}}>
+        <p key={this.state.customer.id}> </p>
+        <p>Name  = {this.state.customer.first_name} {this.state.customer.last_name}</p>
+        <p>Address = {this.state.customer.address}</p>
+        <p>Email = {this.state.customer.email}</p> 
+        <p>Phone Number = {this.state.customer.phone_number} </p>  
         </div>
       </main>
     )
