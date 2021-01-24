@@ -3,6 +3,7 @@ import {Session} from '../requests';
 import {RideRequest} from '../requests';
 import {Customer} from '../requests';
 import Table from 'react-bootstrap/Table'
+import _ from 'lodash';
 
 class DriverProfilePage extends Component {
   constructor(props){
@@ -13,7 +14,6 @@ class DriverProfilePage extends Component {
       customers: []
     }
     this.acceptRequest = this.acceptRequest.bind(this);
-    this.declineRequest = this.declineRequest.bind(this);
   }
 
   componentDidMount() {
@@ -33,6 +33,7 @@ class DriverProfilePage extends Component {
               ride_requests.map(ride_request => {   
                 Customer.show(ride_request.customer_id)
                 .then(customer => {
+
                   this.setState(previousState => {
                     return {
                       customers: [...previousState.customers, customer]
@@ -44,13 +45,17 @@ class DriverProfilePage extends Component {
       })   
   }
 
-  acceptRequest(params){
-    
+  acceptRequest(id, status){
+    const actionParms = {
+      id : id,
+      status: status
+    }
+    RideRequest.update(actionParms)
+      .then((s => {
+        alert('saved');
+      }))
   }
 
-  declineRequest(params){
-
-  }
   
    render(){
     return(
@@ -67,7 +72,7 @@ class DriverProfilePage extends Component {
         </div>
 
         <div style={{ padding:'22px'}}>
-          <h6 style={{color:'black'}}><u>Ride Requests List</u></h6>
+          <h6 style={{color:'black'}}><u>Ride Requests Pending List</u></h6>
           <Table striped bordered hover variant="dark">
             <thead  style= {{fontSize:'.8rem'}}>
               <tr>
@@ -81,8 +86,10 @@ class DriverProfilePage extends Component {
                 <th> Decline </th>
               </tr>
             </thead>
-            <tbody style= {{fontSize:'.8rem'}}>        
+            <tbody style= {{fontSize:'.8rem'}}> 
+                   
               {this.state.ride_requests.map((c, index) => {
+
                 if(this.state.customers[index]){ 
                   return(
                     <tr key={c.id}>
@@ -92,8 +99,8 @@ class DriverProfilePage extends Component {
                       <td>{this.state.customers[index].address} </td>
                       <td> {c.ride_date}</td>
                       <td> {c.ride_time.substring(11,16)}</td>
-                      <td> <button onClick={() => this.acceptRequest(c.id)}>Accept</button></td>
-                      <td> <button onClick={() => this.declineRequest(c.id)}>Decline</button></td>           
+                      <td> <button onClick={() => this.acceptRequest(c.id, 'accept')}>Accept</button></td>
+                      <td> <button onClick={() => this.acceptRequest(c.id , 'decline')}>Decline</button></td>           
                     </tr>
                   )
                 }

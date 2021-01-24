@@ -106,6 +106,16 @@ export const RideRequest= {
       },
       body: JSON.stringify(params)
     }).then(res => res.json());
+  },
+  update(params) {
+    return fetch(`${BASE_URL}/ride_requests/${params.id}`, {
+      method: 'PATCH',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(params)
+    }).then(res => res.json)
   }
 }
 
