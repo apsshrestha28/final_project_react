@@ -11,7 +11,7 @@ import AuthRoute from './components/AuthRoute';
 import Navbar from './components/Navbar';
 import CustomerProfilePage from './components/CustomerProfilePage';
 import RideRequestPage from './components/RideRequestPage';
-
+import DriverProfilePage from './components/DriverProfilePage';
 import DriverShowPage from './components/DriverShowPage';
 
 class App extends Component {
@@ -82,6 +82,7 @@ class App extends Component {
             <Route exact path = '/sign_up/customer' component = {SignUpPageForCustomer}/>
            
          <Route exact path = '/customer' component= {CustomerProfilePage} />
+         <Route exact path = '/driver' component= {DriverProfilePage} />
          <Route exact path = '/users/:id' component = {DriverShowPage}/>
           <Route exact path = '/users/:id/ride_requests' component= {RideRequestPage} />
            

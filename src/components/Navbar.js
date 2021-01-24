@@ -19,7 +19,7 @@ const Navbar =(props) =>{
           (  <>
               {
                 props.currentUser.driver_license_number ?
-                ( <NavLink to ='/usersprf'><button className ="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem'}}>Drivers</button></NavLink>
+                ( <NavLink to ='/driver'><button className ="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem'}}>Driver</button></NavLink>
                 ):  
                 ( <>
                     <NavLink to ='/users'><button className ="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem'}}>Drivers List</button></NavLink>

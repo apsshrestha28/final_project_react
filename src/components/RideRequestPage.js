@@ -28,10 +28,10 @@ const RideRequestPage = (props) => {
 
 
     return (
-      <main>
-         <h5 style={{backgroundColor:'pink',textAlign:'center',fontFamily:'serif'}}>CREATE A RIDE REQUEST</h5>
+      <main className='bgImage' style={{color:'white'}}>
+         <h4 style={{backgroundColor:'white', color:'black', border:' 1.5px solid black',textAlign:'center',fontFamily:'serif'}}>CREATE A RIDE REQUEST</h4>
 
-        <form style={{padding:'2rem',color:'white'}} onSubmit={handleSubmit}>
+        <form style={{padding:'2rem', fontSize:'1.3rem'}} onSubmit={handleSubmit}>
            
         <div className="form-group row">
           <label htmlFor="" className="col-sm-3 col-form-label">Select Day*</label>

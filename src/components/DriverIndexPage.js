@@ -24,10 +24,10 @@ class DriverIndexPage extends Component {
   }
   render() { 
     return ( 
-      <main className = "bgImage" style={{height:'400px'}}>
-        <br/>
-        <h4 style={{textAlign: 'center', color:'black',border:' 1.5px solid black', backgroundColor:'white', marginTop:'-1.5rem'}}>Drivers Nearby :</h4>
-        <ol style={{ marginLeft:'4.3rem', padding: '2px', fontSize:'1.3rem',color:'white'}} >
+      <main className = "bgImage">
+      
+        <h3 style={{textAlign: 'center', color:'black',border:' 1.5px solid black',fontFamily:'serif', backgroundColor:'white'}}>Drivers Nearby :</h3>
+        <ol style={{ marginLeft:'1rem', fontSize:'1.3rem',color:'white', margin:'0rem'}} >
           {
             this.state.users.map(user => {  
               return(

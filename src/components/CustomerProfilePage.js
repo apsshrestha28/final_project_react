@@ -20,15 +20,14 @@ class CustomerProfilePage extends Component {
   }
   render(){
     return(   
-      <main className='showImage'>
-       
-       <h4 style={{textAlign: 'center', color:'black',border:' 1.5px solid black', backgroundColor:'white'}}>Your Profile Page</h4>
-       <div style={{color:'white', padding:'2px',fontSize:'1.3rem'}}>
-        <p key={this.state.customer.id}> </p>
-        <p>Name  = {this.state.customer.first_name} {this.state.customer.last_name}</p>
-        <p>Address = {this.state.customer.address}</p>
-        <p>Email = {this.state.customer.email}</p> 
-        <p>Phone Number = {this.state.customer.phone_number} </p>  
+      <main className='bgImage'>     
+        <h4 style={{textAlign: 'center', color:'black',border:' 1.5px solid black', backgroundColor:'white',fontFamily:'serif'}}>Your Profile Page</h4>
+        <div style={{color:'white', padding:'2px',fontSize:'1.3rem'}}>
+            <p key={this.state.customer.id}> </p>
+            <p>Name  = {this.state.customer.first_name} {this.state.customer.last_name}</p>
+            <p>Address = {this.state.customer.address}</p>
+            <p>Email = {this.state.customer.email}</p> 
+            <p>Phone Number = {this.state.customer.phone_number} </p>  
         </div>
       </main>
     )

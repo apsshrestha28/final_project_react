@@ -51,6 +51,10 @@ export const Customer = {
       body: JSON.stringify(params)
     }).then(res => res.json());
   },
+  show(id){
+    return fetch(`${BASE_URL}/customers/${id}`)
+      .then(res => res.json());
+  },
   update(id, params) {
     return fetch(`${BASE_URL}/customers/${id}`, {
       method: 'PATCH',
@@ -64,7 +68,7 @@ export const Customer = {
 }
 
 export const Review = {
-  index(params) {
+  show(params) {
     return fetch(`${BASE_URL}/users/${params.id}/reviews`,{
       headers:{
         'Cache-Control':'no-cache'
@@ -85,6 +89,14 @@ export const Review = {
 
 
 export const RideRequest= {
+
+  show(params) {
+    return fetch(`${BASE_URL}/users/${params.id}/ride_requests`,{
+      headers:{
+        'Cache-Control':'no-cache'
+      }})
+      .then(res => res.json());
+  },
   create(params) {
     return fetch(`${BASE_URL}/users/${params.user_id}/ride_requests`,{
       method: 'POST',
