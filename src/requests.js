@@ -90,6 +90,13 @@ export const Review = {
 
 export const RideRequest= {
 
+  index(){
+    return fetch(`${BASE_URL}/ride_requests`, {
+      headers: {
+        'Cache-Control': 'no-cache'
+      }}).then (res => res.json());
+    
+  },
   show(params) {
     return fetch(`${BASE_URL}/users/${params.id}/ride_requests`,{
       headers:{

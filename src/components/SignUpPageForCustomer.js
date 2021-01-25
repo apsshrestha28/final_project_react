@@ -2,7 +2,6 @@ import React from "react";
 import { Customer } from "../requests";
 
  function SignUpPageForCustomer(props) {
-
   function handleSubmit(event) {
     event.preventDefault();
     const { currentTarget } = event;
@@ -14,13 +13,12 @@ import { Customer } from "../requests";
       email: fD.get("email"),
       password: fD.get("password"),
       password_confirmation: fD.get("password_confirmation"),
-      address:fD.get("address"),
-     
+      address:fD.get("address"), 
       phone_number:fD.get("phone_number")
     };
 
     Customer.create(newUser).then(res => {
-      if (res.id) {
+      if(res.id) {
         props.history.push("/sign_in");
       }
     });
@@ -39,10 +37,12 @@ import { Customer } from "../requests";
           <label htmlFor="last_name" className="col-sm-3 col-form-label">Last Name*</label>
           <input type="text" name="last_name" required= "required" id="last_name" />
         </div>
+
         <div className="form-group row">
           <label htmlFor="address" className="col-sm-3 col-form-label">Address*</label>
           <input type="text" name="address" required= "required" id="address" />
         </div>
+
         <div className="form-group row">
           <label htmlFor="email" className="col-sm-3 col-form-label">Email*</label>
           <input type="email" name="email" required= "required"  id="email" />
@@ -57,6 +57,7 @@ import { Customer } from "../requests";
           <label htmlFor="password" className="col-sm-3 col-form-label">Password*</label>
           <input type="password" name="password" required= "required" id="password" />
         </div>
+
         <div className="form-group row"> 
           <label htmlFor="password_confirmation" className="col-sm-3 col-form-label">Confirm Password*</label>
           <input
@@ -66,6 +67,7 @@ import { Customer } from "../requests";
             id="password_confirmation"
           />
         </div>
+        
         <button type="submit" className="btn btn-primary btn" style={{marginLeft:'20.6rem'}}>Sign Up</button>
       </form>
     </main>

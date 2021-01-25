@@ -4,11 +4,9 @@ function WelcomePage() {
   return (
     <div style={{
         fontSize: '50px'
-    }} className="container">
-      
+    }} className="container">   
     </div>
   );
 }
-
 
 export default WelcomePage;

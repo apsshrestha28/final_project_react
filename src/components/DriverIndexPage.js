@@ -3,7 +3,6 @@ import {User} from '../requests';
 import {Link} from 'react-router-dom';
 import GoogleAPI from './GoogleAPI';
 
-
 class DriverIndexPage extends Component {
   constructor(props){
     super(props);
@@ -11,11 +10,9 @@ class DriverIndexPage extends Component {
       users: []
     }    
   }
-
   componentDidMount() {
     User.index()
       .then((users) => {
-        console.log(users);
         this.setState((state) => {
           return {
            users: users
@@ -25,7 +22,6 @@ class DriverIndexPage extends Component {
   render() { 
     return ( 
       <main className = "bgImage">
-      
         <h3 style={{textAlign: 'center', color:'black',border:' 1.5px solid black',fontFamily:'serif', backgroundColor:'white'}}>Drivers Nearby :</h3>
         <ol style={{ marginLeft:'1rem', fontSize:'1.3rem',color:'white', margin:'0rem'}} >
           {
@@ -44,5 +40,4 @@ class DriverIndexPage extends Component {
      );
   }
 }
- 
 export default DriverIndexPage;
