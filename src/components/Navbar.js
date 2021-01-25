@@ -19,7 +19,11 @@ const Navbar =(props) =>{
           (  <>
               {
                 props.currentUser.driver_license_number ?
-                ( <NavLink to ='/driver'><button className ="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem'}}>Driver</button></NavLink>
+                ( 
+                  <>
+                    <NavLink to ='/driver'><button className ="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem'}}>Driver</button></NavLink>
+                    <NavLink to ='/ride_requests'><button className ="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem'}}>Ride Requests List</button></NavLink>
+                  </>
                 ):  
                 ( <>
                     <NavLink to ='/users'><button className ="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem'}}>Drivers List</button></NavLink>
@@ -27,7 +31,7 @@ const Navbar =(props) =>{
                   </>
                 )
               }
-              <span style={{color:'white'}}> Hello! {props.currentUser.first_name}</span>
+              <span style={{color:'white', fontSize:'1.4rem'}}> Hello! {props.currentUser.first_name} {props.currentUser.last_name}</span>
               <button onClick={handleSignOutButtonClick} className="btn btn-danger btn-sm" style={{marginLeft:'1rem'}}>Sign Out
               </button>  
             </>

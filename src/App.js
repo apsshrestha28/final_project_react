@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import './App.css';
-import { RideRequest, Session } from './requests';
+import { Session } from './requests';
 import SignInPage from './components/SignInPage';
 import SignUpPageForCustomer from './components/SignUpPageForCustomer';
 import SignUpPageForDriver from './components/SignUpPageForDriver';
@@ -13,6 +12,8 @@ import CustomerProfilePage from './components/CustomerProfilePage';
 import RideRequestPage from './components/RideRequestPage';
 import DriverProfilePage from './components/DriverProfilePage';
 import DriverShowPage from './components/DriverShowPage';
+import DriverRideRequestPage from './components/DriverRideRequestPage';
+import './App.css';
 
 class App extends Component {
   constructor(props){
@@ -20,13 +21,11 @@ class App extends Component {
     this.state = {
       user: null
     }
-
     this.handleSubmit = this.handleSubmit.bind(this);
     this.destroySession = this.destroySession.bind(this);
   }
 
   componentDidMount(){
-
     Session.currentUser()
     .then(user => {
       this.setState(state => {
@@ -37,8 +36,7 @@ class App extends Component {
     })
   }
 
-  handleSubmit(params) {
-   
+  handleSubmit(params) { 
     Session.create(params)
       .then(() => {
         return Session.currentUser()
@@ -64,8 +62,7 @@ class App extends Component {
 
   render(){
     return (
-      <div className="App">
-        
+      <div className="App">      
         <BrowserRouter>
         <Navbar currentUser={this.state.user} destroySession={this.destroySession}/>
           <Switch>
@@ -75,17 +72,16 @@ class App extends Component {
               path='/users'
               isAuth={this.state.user}
               component={DriverIndexPage}
-            />
-          
+            /> 
             <Route exact path = '/sign_in' render = {routeProps => <SignInPage handleSubmit= {this.handleSubmit} {...routeProps}/>}/>
             <Route exact path = '/sign_up/driver' component = {SignUpPageForDriver}/>
-            <Route exact path = '/sign_up/customer' component = {SignUpPageForCustomer}/>
-           
-         <Route exact path = '/customer' component= {CustomerProfilePage} />
-         <Route exact path = '/driver' component= {DriverProfilePage} />
-         <Route exact path = '/users/:id' component = {DriverShowPage}/>
-          <Route exact path = '/users/:id/ride_requests' component= {RideRequestPage} />
-           
+            <Route exact path = '/sign_up/customer' component = {SignUpPageForCustomer}/> 
+            <Route exact path = '/customer' component= {CustomerProfilePage} />
+            <Route exact path = '/driver' component= {DriverProfilePage} />
+            <Route exact path = '/users/:id' component = {DriverShowPage}/>
+            <Route exact path = '/users/:id/ride_requests' component= {RideRequestPage} />
+            <Route exact path = '/ride_requests' component= {DriverRideRequestPage} />
+          
           </Switch>
         </BrowserRouter>     
       </div>
