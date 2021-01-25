@@ -1,14 +1,18 @@
 import React from 'react';
+import { BiCurrentLocation} from "react-icons/bi";
+import { CgMail} from "react-icons/cg";
+import { AiFillPhone} from "react-icons/ai";
+
 
 const DriverDetails = ({ first_name, last_name, description, email, 
  address, phone_number}) => {
    return (
-    <div style={{padding:'7px'}}>
-       <p> Name = {first_name} {last_name}</p>
-       <p>Address = {address}</p>
-       <p>Phone Number = {phone_number}</p>
-       <p>Email = {email}</p>
-       <p>Description = {description}</p>
+    <div style={{color:'white',marginLeft:'.9rem'}}>
+        <h5 style={{color:'black',fontSize:'1.6rem'}}>   {first_name} {last_name}</h5>
+        <p> {description} </p>
+        <p><BiCurrentLocation /> {address} </p>
+        <p><CgMail /> {email}</p> 
+        <p><AiFillPhone/> {phone_number} </p>  
      </div>
    )
  }

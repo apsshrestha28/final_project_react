@@ -64,8 +64,13 @@ class DriverShowPage extends Component {
             </div>
 
             <div style={{ padding:'10px'}}>
+        
               <form onSubmit={this.handleSubmit} >
                 <h5 style={{color:'black'}}><u>Write a review</u></h5>
+
+                <div className='cursor-pointer'></div>
+               
+                  
                 <div style={{ fontSize:'1.2rem'}}>  
                   <textarea name='body' id='body' cols = '40' rows = '1' style={{border: '1px solid black'}} ></textarea>
                   <button className="btn btn-primary btn-sm" style={{marginLeft:'.3rem', marginTop: '-1.3rem'}} type="submit">Submit</button>               

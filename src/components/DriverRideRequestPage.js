@@ -51,9 +51,9 @@ class DriverProfilePage extends Component {
       status: status
     }
     RideRequest.update(actionParms)
-      .then((s => {
+      .then( () => {
         window.location.reload(true);
-      }))
+      })
   }
  
   render(){
@@ -89,8 +89,8 @@ class DriverProfilePage extends Component {
                       <td>{this.state.customers[index].destination_address}</td>
                       <td>{c.ride_date}</td>
                       <td>{c.ride_time.substring(11,16)}</td>
-                      <td><button onClick={() => this.acceptRequest(c.id, 'accept')} className= 'btn btn-success btn-sm'>Accept</button></td>
-                      <td> <button onClick={() => this.acceptRequest(c.id , 'decline')} className= 'btn btn-danger btn-sm'>Decline</button></td>           
+                      <td><button onClick={() => this.acceptRequest(c.id, 'accepted')} className= 'btn btn-success btn-sm'>Accept</button></td>
+                      <td> <button onClick={() => this.acceptRequest(c.id , 'declined')} className= 'btn btn-danger btn-sm'>Decline</button></td>           
                     </tr>
                   )
                 }
@@ -115,7 +115,7 @@ class DriverProfilePage extends Component {
               </tr>
             </thead>
             <tbody style= {{fontSize:'.8rem'}}> 
-              {this.state.ride_requests.filter(a => a.status === 'accept').map((c, index) => {  
+              {this.state.ride_requests.filter(a => a.status === 'accepted').map((c, index) => {  
                 if(this.state.customers[index]){ 
                   return(
                     <tr key={c.id}>

@@ -28,7 +28,7 @@ class DriverIndexPage extends Component {
             this.state.users.map(user => {  
               return(
                 <li key={user.id}>
-                  <u><Link key={user.id} to={`/users/${user.id}`} style={{color:'white'}}> {user.first_name} {user.last_name}</Link></u>
+                  <u><Link key={user.id} to={`/users/${user.id}`} style= {{color:'#ffbf00'}} > {user.first_name} {user.last_name}</Link></u>
                   <GoogleAPI {...user} />
                   <br/> 
                 </li>

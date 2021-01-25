@@ -17,6 +17,7 @@ const RideRequestPage = (props) => {
     RideRequest.create(newRideRequest)
       .then(res => {
         alert("ride request created");
+        window.location.reload(true);
       })
   }
   return (

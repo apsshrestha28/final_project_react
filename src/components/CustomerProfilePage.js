@@ -57,7 +57,7 @@ class CustomerProfilePage extends Component {
             <p><AiFillPhone/>  {this.state.customer.phone_number} </p>  
         </div>
         <div style={{ padding:'22px'}}>
-          <h5 style={{color:'black'}}><u>Ride Requested List</u></h5>
+          <h5 style={{color:'black'}}><u>Ride Request List</u></h5>
           <Table striped bordered hover variant="dark">
             <thead  style= {{fontSize:'.8rem'}}>
               <tr>

@@ -13,7 +13,6 @@ const ReviewList = (props) => {
                 <ReviewDetails
                   id={review.id}
                   body={review.body}
-                  rating={review.rating}
                   created_at={new Date(review.created_at).toDateString() }
                 />
               </li>
