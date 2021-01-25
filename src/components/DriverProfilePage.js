@@ -1,9 +1,15 @@
 import React , {Component} from 'react';
 import {Session} from '../requests';
+import {Review} from '../requests';
+import ReviewList from './ReviewList';
 import {RideRequest} from '../requests';
 import {Customer} from '../requests';
 import Table from 'react-bootstrap/Table'
 import _ from 'lodash';
+import { BiCurrentLocation} from "react-icons/bi";
+import { CgMail} from "react-icons/cg";
+import { AiFillPhone} from "react-icons/ai";
+import {IoCardSharp } from "react-icons/io5";
 
 class DriverProfilePage extends Component {
   constructor(props){
@@ -11,7 +17,8 @@ class DriverProfilePage extends Component {
     this.state = {
       user: {},
       ride_requests: [],
-      customers: []
+      customers: [],
+      reviews: []
     }
     this.acceptRequest = this.acceptRequest.bind(this);
   }
@@ -23,6 +30,14 @@ class DriverProfilePage extends Component {
             return {
               user: user
             }})
+          Review.show(user)
+            .then(reviews => {
+              this.setState((state) => {
+                return {
+                  reviews: reviews
+                }
+              })
+            })
           RideRequest.show(user)
             .then(ride_requests => {
               this.setState((state) => {
@@ -33,7 +48,6 @@ class DriverProfilePage extends Component {
               ride_requests.map(ride_request => {   
                 Customer.show(ride_request.customer_id)
                 .then(customer => {
-
                   this.setState(previousState => {
                     return {
                       customers: [...previousState.customers, customer]
@@ -63,12 +77,17 @@ class DriverProfilePage extends Component {
         <h3 style={{textAlign: 'center', color:'black',border:' 1.5px solid black', backgroundColor:'white',fontFamily:'serif'}}>Your Profile Page</h3>   
         <div style={{color:'white',marginLeft:'1.5rem'}}>
             <p key={this.state.user.id}> </p>
-            <p>Name  = {this.state.user.first_name} {this.state.user.last_name}</p>
-            <p>Address = {this.state.user.address}</p>
-            <p>Email = {this.state.user.email}</p> 
-            <p>Phone Number = {this.state.user.phone_number} </p>       
-            <p>Description = {this.state.user.description} </p>
-            <p>Driving License Number = {this.state.user.driver_license_number} </p>
+            <h5 style={{color:'black',fontSize:'1.6rem'}}> {this.state.user.first_name} {this.state.user.last_name}</h5>
+            <p> {this.state.user.description} </p>
+            <p><BiCurrentLocation /> {this.state.user.address} </p>
+            <p><CgMail /> {this.state.user.email}</p> 
+            <p><AiFillPhone/> {this.state.user.phone_number} </p>       
+            <p>< IoCardSharp/> {this.state.user.driver_license_number} </p>
+        </div>
+
+        <div style={{ padding:'22px'}}>
+        <h5 style={{color:'black'}}><u>Reviews</u></h5>
+          <ReviewList reviews={this.state.reviews}/>
         </div>
 
         <div style={{ padding:'22px'}}>
@@ -80,10 +99,11 @@ class DriverProfilePage extends Component {
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Address</th>
+                <th>Destination Address</th>
                 <th>Ride Date</th>
                 <th>Ride Time</th>
-                <th> Accept </th>
-                <th> Decline </th>
+                <th>Accept</th>
+                <th>Decline</th>
               </tr>
             </thead>
             <tbody style= {{fontSize:'.8rem'}}> 
@@ -94,10 +114,11 @@ class DriverProfilePage extends Component {
                       <td>{index + 1} </td>
                       <td>{this.state.customers[index].first_name}</td>
                       <td>{this.state.customers[index].last_name}</td>
-                      <td>{this.state.customers[index].address} </td>
-                      <td> {c.ride_date}</td>
-                      <td> {c.ride_time.substring(11,16)}</td>
-                      <td> <button onClick={() => this.acceptRequest(c.id, 'accept')} className= 'btn btn-success btn-sm'>Accept</button></td>
+                      <td>{this.state.customers[index].address}</td>
+                      <td>{this.state.customers[index].destination_address}</td>
+                      <td>{c.ride_date}</td>
+                      <td>{c.ride_time.substring(11,16)}</td>
+                      <td><button onClick={() => this.acceptRequest(c.id, 'accept')} className= 'btn btn-success btn-sm'>Accept</button></td>
                       <td> <button onClick={() => this.acceptRequest(c.id , 'decline')} className= 'btn btn-danger btn-sm'>Decline</button></td>           
                     </tr>
                   )
@@ -117,6 +138,7 @@ class DriverProfilePage extends Component {
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Address</th>
+                <th>Destination Address</th>
                 <th>Ride Date</th>
                 <th>Ride Time</th>
               </tr>
@@ -129,9 +151,10 @@ class DriverProfilePage extends Component {
                       <td>{index + 1} </td>
                       <td>{this.state.customers[index].first_name}</td>
                       <td>{this.state.customers[index].last_name}</td>
-                      <td>{this.state.customers[index].address} </td>
-                      <td> {c.ride_date}</td>
-                      <td> {c.ride_time.substring(11,16)}</td>        
+                      <td>{this.state.customers[index].address}</td>
+                      <td>{this.state.customers[index].destination_address}</td>
+                      <td>{c.ride_date}</td>
+                      <td>{c.ride_time.substring(11,16)}</td>        
                     </tr>
                   )
                 }

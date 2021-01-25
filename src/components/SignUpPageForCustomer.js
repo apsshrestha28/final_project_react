@@ -14,6 +14,7 @@ import { Customer } from "../requests";
       password: fD.get("password"),
       password_confirmation: fD.get("password_confirmation"),
       address:fD.get("address"), 
+      destination_address:fD.get("destination_address"), 
       phone_number:fD.get("phone_number")
     };
 
@@ -37,10 +38,15 @@ import { Customer } from "../requests";
           <label htmlFor="last_name" className="col-sm-3 col-form-label">Last Name*</label>
           <input type="text" name="last_name" required= "required" id="last_name" />
         </div>
-
+        
         <div className="form-group row">
           <label htmlFor="address" className="col-sm-3 col-form-label">Address*</label>
           <input type="text" name="address" required= "required" id="address" />
+        </div>
+
+        <div className="form-group row">
+          <label htmlFor="destination_address" className="col-sm-3 col-form-label">Destination Address*</label>
+          <input type="text" name="destination_address" required= "required" id="destination_address" />
         </div>
 
         <div className="form-group row">

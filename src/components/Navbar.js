@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { FaCarAlt } from 'react-icons/fa';
+import { FaCar} from 'react-icons/fa';
 
 const Navbar =(props) =>{
   function handleSignOutButtonClick() {
@@ -9,7 +9,7 @@ const Navbar =(props) =>{
   return (
     <nav className="navbar navbar-dark bg-dark" >
       <span>       
-        <FaCarAlt style={{color:'orange', width: '2rem', height:'2.5rem'}}/>
+        <FaCar style={{color:'orange', width: '2rem', height:'2.5rem'}}/>
         <span style={{fontSize:28,color:'white',marginLeft:'.3rem'}}>Ride share</span> 
       </span>
       <span style={{float: 'right'}}>

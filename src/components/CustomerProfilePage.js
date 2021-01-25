@@ -3,6 +3,10 @@ import {Session} from '../requests';
 import {RideRequest} from '../requests';
 import  {User} from '../requests';
 import Table from 'react-bootstrap/Table'
+import { BiCurrentLocation} from "react-icons/bi";
+import { GoLocation} from "react-icons/go";
+import { CgMail} from "react-icons/cg";
+import { AiFillPhone} from "react-icons/ai";
 
 class CustomerProfilePage extends Component {
   constructor(props){
@@ -44,12 +48,13 @@ class CustomerProfilePage extends Component {
     return(   
       <main className='bgImage'>     
         <h3 style={{textAlign: 'center', color:'black',border:' 1.5px solid black', backgroundColor:'white',fontFamily:'serif'}}>Your Profile Page</h3>
-        <div style={{color:'white', padding:'2px',fontSize:'1.3rem'}}>
+        <div style={{color:'white', marginLeft:'1.5rem'}}>
             <p key={this.state.customer.id}> </p>
-            <p>Name  = {this.state.customer.first_name} {this.state.customer.last_name}</p>
-            <p>Address = {this.state.customer.address}</p>
-            <p>Email = {this.state.customer.email}</p> 
-            <p>Phone Number = {this.state.customer.phone_number} </p>  
+            <h5 style={{color:'black', fontSize:'1.5rem'}}> {this.state.customer.first_name} {this.state.customer.last_name}</h5>
+            <p><BiCurrentLocation /> {this.state.customer.address}</p>
+            <p><GoLocation /> {this.state.customer.destination_address}</p>
+            <p><CgMail /> {this.state.customer.email}</p> 
+            <p><AiFillPhone/>  {this.state.customer.phone_number} </p>  
         </div>
         <div style={{ padding:'22px'}}>
           <h5 style={{color:'black'}}><u>Ride Requested List</u></h5>
