@@ -3,8 +3,6 @@ import {Session} from '../requests';
 import {RideRequest} from '../requests';
 import {Customer} from '../requests';
 import Table from 'react-bootstrap/Table'
-import _ from 'lodash';
-
 
 class DriverProfilePage extends Component {
   constructor(props){

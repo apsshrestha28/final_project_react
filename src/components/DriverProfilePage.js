@@ -2,7 +2,6 @@ import React , {Component} from 'react';
 import {Session} from '../requests';
 import {Review} from '../requests';
 import ReviewList from './ReviewList';
-import _ from 'lodash';
 import { BiCurrentLocation} from "react-icons/bi";
 import { CgMail} from "react-icons/cg";
 import { AiFillPhone} from "react-icons/ai";

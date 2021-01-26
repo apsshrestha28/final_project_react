@@ -3,7 +3,6 @@ import { BiCurrentLocation} from "react-icons/bi";
 import { CgMail} from "react-icons/cg";
 import { AiFillPhone} from "react-icons/ai";
 
-
 const DriverDetails = ({ first_name, last_name, description, email, 
  address, phone_number}) => {
    return (

@@ -1,4 +1,5 @@
 const BASE_URL = `http://localhost:3000/api/v1`;
+
 export const User = {
   index() {
     return fetch(`${BASE_URL}/users`,{
@@ -87,15 +88,12 @@ export const Review = {
   }
 }
 
-
 export const RideRequest= {
-
   index(){
     return fetch(`${BASE_URL}/ride_requests`, {
       headers: {
         'Cache-Control': 'no-cache'
-      }}).then (res => res.json());
-    
+      }}).then (res => res.json());  
   },
   show(params) {
     return fetch(`${BASE_URL}/users/${params.id}/ride_requests`,{

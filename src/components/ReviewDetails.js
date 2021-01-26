@@ -2,8 +2,8 @@ import React from 'react';
 
 const ReviewDetails = (props)=>{
   const body = props.body;
-
   const created_at = props.created_at;
+  
   return(
     <div>
        <p>{body}</p>
