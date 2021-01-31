@@ -19,11 +19,11 @@ const SignInPage = ({ handleSubmit, history}) => {
       <form style={{padding:'2rem',color:'white'}} onSubmit={onSubmit}>
         <div className='form-group row'>
           <label htmlFor='email' className='col-sm-2 col-form-label'>Email*</label>
-          <input id='email' type='email' name='email' />
+          <input id='email' type='email' name='email' required='required' />
         </div>
         <div className= 'form-group row'>
           <label htmlFor='password' className='col-sm-2 col-form-label'>Password*</label>
-          <input id='password' type='password' name='password' />
+          <input id='password' type='password' name='password' required='required' />
         </div>
         <button type="submit" className="btn btn-primary btn" style={{marginLeft:'16.8rem'}}>Sign In</button>
       </form>

@@ -4,13 +4,15 @@ import DriverDetails from './DriversDetails';
 import {Review} from '../requests';
 import ReviewList from './ReviewList';
 import {Link} from 'react-router-dom';
+import {Customer} from '../requests';
 
 class DriverShowPage extends Component {
   constructor(props){
     super(props);
     this.state = { 
       user: {},
-      reviews: []
+      reviews: [],
+      customers: []
      }
      this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -28,8 +30,18 @@ class DriverShowPage extends Component {
                 reviews: reviews
               }
             })
-          })     
-      }) 
+            reviews.map(reviews => {
+              Customer.show(reviews.customer_id)
+                .then(customer => {
+                  this.setState(previousState => {
+                    return {
+                      customers: [...previousState.customers, customer]
+                    }    
+                  });        
+                })  
+            })  
+          }) 
+      })         
   }
 
   handleSubmit(event){
@@ -77,7 +89,7 @@ class DriverShowPage extends Component {
                 </div>
               </form>      
               <h6 style={{color:'black'}}><u>Reviews</u></h6>
-              <ReviewList reviews={this.state.reviews}/>
+              <ReviewList reviews={this.state.reviews} customers={this.state.customers}/>
             </div>
         </div>
       </main> 

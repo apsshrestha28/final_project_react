@@ -3,20 +3,25 @@ import ReviewDetails from './ReviewDetails';
 
 const ReviewList = (props) => {
   const reviews = props.reviews;
+  const customers = props.customers;
+ 
   return(
-    <ul>
+    <ul style= {{listStyle:'none'}}>
       {
         reviews?
-          reviews.map(review => {
-            return (      
-              <li key={review.id}>
-                <ReviewDetails
-                  id={review.id}
-                  body={review.body}
-                  created_at={new Date(review.created_at).toDateString() }
-                />
-              </li>
-            )
+          reviews.map((review,index) => {
+            if(customers[index]){
+              return (      
+                <li key={review.id}>
+                  <ReviewDetails
+                    id={review.id}
+                    customer = {customers[index].first_name}
+                    body={review.body}
+                    created_at={new Date(review.created_at).toDateString() }
+                  />
+                </li>
+              )
+            }
           })
         :
         null

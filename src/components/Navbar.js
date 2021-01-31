@@ -27,11 +27,11 @@ const Navbar =(props) =>{
                 ):  
                 ( <>
                     <NavLink to ='/users'><button className ="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem'}}>Drivers List</button></NavLink>
-                    <NavLink to ='/customer'><button className ="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem', marginRight:'1rem'}}>Customer</button></NavLink>
+                    <NavLink to ='/customer'><button className ="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem'}}>Customer</button></NavLink>
                   </>
                 )
               }
-              <span style={{color:'white', fontSize:'1.4rem'}}> Hello! {props.currentUser.first_name} {props.currentUser.last_name}</span>
+              <span style={{color:'white', fontSize:'1.4rem', marginLeft:'1rem'}}>Hello! {props.currentUser.first_name} {props.currentUser.last_name}</span>
               <button onClick={handleSignOutButtonClick} className="btn btn-danger btn-sm" style={{marginLeft:'1rem'}}>Sign Out
               </button>  
             </>

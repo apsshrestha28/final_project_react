@@ -1,5 +1,5 @@
 import React , {Component} from 'react';
-import {Session} from '../requests';
+import {Session, Customer} from '../requests';
 import {Review} from '../requests';
 import ReviewList from './ReviewList';
 import { BiCurrentLocation} from "react-icons/bi";
@@ -31,6 +31,16 @@ class DriverProfilePage extends Component {
                   reviews: reviews
                 }
               })
+              reviews.map(reviews => {
+                Customer.show(reviews.customer_id)
+                  .then(customer => {
+                    this.setState(previousState => {
+                      return {
+                        customers: [...previousState.customers, customer]
+                      }    
+                    });        
+                  })  
+              })  
             })
       })   
   }
@@ -48,9 +58,10 @@ class DriverProfilePage extends Component {
             <p>< IoCardSharp/> {this.state.user.driver_license_number} </p>
         </div>
 
-        <div style={{ padding:'22px'}}>
+        <div style={{ padding:'22px',color:'white'}}>
         <h5 style={{color:'black'}}><u>Reviews</u></h5>
-          <ReviewList reviews={this.state.reviews}/>
+        
+          <ReviewList reviews={this.state.reviews} customers={this.state.customers}/>
         </div>   
       </main>
     )
