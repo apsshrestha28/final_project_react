@@ -1,10 +1,8 @@
 import React , {Component} from 'react';
-import {Session} from '../requests';
-import {RideRequest} from '../requests';
-import {Customer} from '../requests';
+import {Session, RideRequest, Customer} from '../requests';
 import Table from 'react-bootstrap/Table'
 
-class DriverProfilePage extends Component {
+class DriverRideRequestPage extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -57,12 +55,12 @@ class DriverProfilePage extends Component {
   render(){
     return(
       <main className='bgImage'>
-        <h3 style={{textAlign: 'center', color:'black',border:' 1.5px solid black', backgroundColor:'white',fontFamily:'serif'}}>Ride Request Info</h3>        
-
-        <div style={{ padding:'22px'}}>
-          <h5 style={{color:'black'}}><u>Ride Requests Pending List</u></h5>
+        <h3 className='headerStyle'>Ride Requests Information</h3>        
+       
+        <div className='tableStyle'>
+          <h5 className='title'><u>Ride Requests Pending List</u></h5>
           <Table striped bordered hover variant="dark">
-            <thead  style= {{fontSize:'.8rem'}}>
+            <thead className='tableList'>
               <tr>
                 <th>S.N</th>
                 <th>First Name</th>
@@ -75,33 +73,31 @@ class DriverProfilePage extends Component {
                 <th>Decline</th>
               </tr>
             </thead>
-            <tbody style= {{fontSize:'.8rem'}}> 
-              {this.state.ride_requests.filter(a => a.status === '').map((c, index) => {  
+
+            <tbody className='tableList'> 
+              {this.state.ride_requests.filter(a => a.status === '').map((ride_request, index) => {  
                 if(this.state.customers[index]){ 
                   return(
-                    <tr key={c.id}>
+                    <tr key={ride_request.id}>
                       <td>{index + 1} </td>
                       <td>{this.state.customers[index].first_name}</td>
                       <td>{this.state.customers[index].last_name}</td>
                       <td>{this.state.customers[index].address}</td>
                       <td>{this.state.customers[index].destination_address}</td>
-                      <td>{c.ride_date}</td>
-                      <td>{c.ride_time.substring(11,16)}</td>
-                      <td><button onClick={() => this.acceptRequest(c.id, 'accepted')} className= 'btn btn-success btn-sm'>Accept</button></td>
-                      <td> <button onClick={() => this.acceptRequest(c.id , 'declined')} className= 'btn btn-danger btn-sm'>Decline</button></td>           
+                      <td>{ride_request.ride_date}</td>
+                      <td>{ride_request.ride_time.substring(11,16)}</td>
+                      <td><button onClick={() => this.acceptRequest(ride_request.id, 'accepted')} className= 'btn btn-success btn-sm'>Accept</button></td>
+                      <td><button onClick={() => this.acceptRequest(ride_request.id , 'declined')} className= 'btn btn-danger btn-sm'>Decline</button></td>           
                     </tr>
                   )
                 }
-
               })}       
             </tbody>
           </Table>                     
-        </div>
-
-        <div style={{ padding:'22px'}}>
-          <h5 style={{color:'black'}}><u>Ride Requests Accepted List</u></h5>
+          <br/>
+          <h5 className='title'><u>Ride Requests Accepted List</u></h5>
           <Table striped bordered hover variant="dark">
-            <thead  style= {{fontSize:'.8rem'}}>
+            <thead className='tableList'>
               <tr>
                 <th>S.N</th>
                 <th>First Name</th>
@@ -112,18 +108,18 @@ class DriverProfilePage extends Component {
                 <th>Ride Time</th>
               </tr>
             </thead>
-            <tbody style= {{fontSize:'.8rem'}}> 
-              {this.state.ride_requests.filter(a => a.status === 'accepted').map((c, index) => {  
+            <tbody className='tableList'> 
+              {this.state.ride_requests.filter(a => a.status === 'accepted').map((ride_request, index) => {  
                 if(this.state.customers[index]){ 
                   return(
-                    <tr key={c.id}>
+                    <tr key={ride_request.id}>
                       <td>{index + 1} </td>
                       <td>{this.state.customers[index].first_name}</td>
                       <td>{this.state.customers[index].last_name}</td>
                       <td>{this.state.customers[index].address}</td>
                       <td>{this.state.customers[index].destination_address}</td>
-                      <td>{c.ride_date}</td>
-                      <td>{c.ride_time.substring(11,16)}</td>        
+                      <td>{ride_request.ride_date}</td>
+                      <td>{ride_request.ride_time.substring(11,16)}</td>        
                     </tr>
                   )
                 }
@@ -136,4 +132,4 @@ class DriverProfilePage extends Component {
   }
 }
  
-export default DriverProfilePage;
+export default DriverRideRequestPage;

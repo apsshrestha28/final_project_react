@@ -1,7 +1,6 @@
 import {getDistance} from 'geolib';
 import _ from 'lodash';
-import {Customer} from '../requests';
-import {Session} from '../requests';
+import {Customer, Session} from '../requests';
 import React, { Component } from 'react';
 
 export default class Locations extends Component{

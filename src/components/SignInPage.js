@@ -14,9 +14,9 @@ const SignInPage = ({ handleSubmit, history}) => {
   }
 
   return(
-    <main className='bgImage' style={{height:'320px'}}>
-      <h5 style={{color:'white',marginLeft:'2rem',paddingTop:'1rem'}}>Sign In</h5>
-      <form style={{padding:'2rem',color:'white'}} onSubmit={onSubmit}>
+    <main className='bgImg' id='sign-style'>
+      <h4 className='sign-heading'>Sign In</h4>
+      <form className='sign-form' onSubmit={onSubmit}>
         <div className='form-group row'>
           <label htmlFor='email' className='col-sm-2 col-form-label'>Email*</label>
           <input id='email' type='email' name='email' required='required' />
@@ -25,7 +25,7 @@ const SignInPage = ({ handleSubmit, history}) => {
           <label htmlFor='password' className='col-sm-2 col-form-label'>Password*</label>
           <input id='password' type='password' name='password' required='required' />
         </div>
-        <button type="submit" className="btn btn-primary btn" style={{marginLeft:'16.8rem'}}>Sign In</button>
+        <button type="submit" className="btn btn-primary btn" id='s-in-button'>Sign In</button>
       </form>
     </main>
   )

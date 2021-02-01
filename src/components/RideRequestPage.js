@@ -22,21 +22,20 @@ const RideRequestPage = (props) => {
   }
   return (
     <main className='bgImage' style={{color:'white'}}>
-      <h4 style={{backgroundColor:'white', color:'black', border:' 1.5px solid black',textAlign:'center',fontFamily:'serif'}}>CREATE A RIDE REQUEST</h4>
+      <h3 className='headerStyle'>Create A Ride Request</h3>
 
-      <form style={{padding:'2rem', fontSize:'1.3rem'}} onSubmit={handleSubmit}>
-          
-      <div className="form-group row">
-        <label htmlFor="" className="col-sm-3 col-form-label">Select Day*</label>
-        <input type="date" name="ride_date" required= "required" id="ride_date" />
-      </div>
+      <form className= 'rideRequestForm' onSubmit={handleSubmit}>   
+        <div className="form-group row">
+          <label htmlFor="ride_date" className="col-sm-3 col-form-label">Select Day*</label>
+          <input type="date" name="ride_date" required= "required" />
+        </div>
 
-      <div className="form-group row">
-        <label htmlFor="" className="col-sm-3 col-form-label">Select Time*</label>
-        <input type="time" name="ride_time" required= "required" id="ride_time" />
-      </div>
+        <div className="form-group row">
+          <label htmlFor="ride_time" className="col-sm-3 col-form-label">Select Time*</label>
+          <input type="time" name="ride_time" required= "required" />
+        </div>
 
-      <button type="submit" className="btn btn-primary btn" style={{marginLeft:'20.6rem'}}>Submit</button>
+        <button type="submit" className="btn btn-primary btn" id='button-rr'>Submit</button>
 
       </form>
     </main>

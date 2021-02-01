@@ -25,10 +25,10 @@ import { Customer } from "../requests";
     });
   }
   return (
-    <main className='bgImage'>
-      <h5 style={{color:'white',marginLeft:'2rem',paddingTop:'1.4rem'}}>Sign Up As New Customer</h5>
+    <main className='bgImage' id='sign-style'>
+      <h5 className='sign-heading'>Sign Up As New Customer</h5>
 
-      <form style={{padding:'2rem',color:'white'}} onSubmit={handleSubmit}>
+      <form className='sign-form' onSubmit={handleSubmit}>
         <div className="form-group row">
           <label htmlFor="first_name" className="col-sm-3 col-form-label">First Name*</label>
           <input type="text" name="first_name" required= "required" id="first_name" />
@@ -48,15 +48,15 @@ import { Customer } from "../requests";
           <label htmlFor="destination_address" className="col-sm-3 col-form-label">Destination Address*</label>
           <input type="text" name="destination_address" required= "required" id="destination_address" />
         </div>
-
-        <div className="form-group row">
-          <label htmlFor="email" className="col-sm-3 col-form-label">Email*</label>
-          <input type="email" name="email" required= "required"  id="email" />
-        </div>
       
         <div className="form-group row">
           <label htmlFor="phone_number" className="col-sm-3 col-form-label">Phone Number*</label>
           <input type="number" name="phone_number" required= "required" id="phone_number" />
+        </div>
+
+        <div className="form-group row">
+          <label htmlFor="email" className="col-sm-3 col-form-label">Email*</label>
+          <input type="email" name="email" required= "required"  id="email" />
         </div>
        
         <div className="form-group row">
@@ -74,7 +74,7 @@ import { Customer } from "../requests";
           />
         </div>
         
-        <button type="submit" className="btn btn-primary btn" style={{marginLeft:'20.6rem'}}>Sign Up</button>
+        <button type="submit" className="btn btn-primary btn" id='s-up-button'>Sign Up</button>
       </form>
     </main>
   );

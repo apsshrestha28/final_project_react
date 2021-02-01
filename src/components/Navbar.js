@@ -9,10 +9,10 @@ const Navbar =(props) =>{
   return (
     <nav className="navbar navbar-dark bg-dark" >
       <span>       
-        <FaCar style={{color:'orange', width: '2rem', height:'2.5rem'}}/>
-        <span style={{fontSize:28,color:'white',marginLeft:'.3rem'}}>Ride share</span> 
+        <FaCar className= 'carIcon'/>
+        <span className= 'appName'>Ride share</span> 
       </span>
-      <span style={{float: 'right'}}>
+      <span className='navStyle'>
         <NavLink to ='/'><button className="btn btn-primary btn-sm" type="button">Home</button></NavLink>
         {
         props.currentUser ?
@@ -21,26 +21,26 @@ const Navbar =(props) =>{
                 props.currentUser.driver_license_number ?
                 ( 
                   <>
-                    <NavLink to ='/driver'><button className ="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem'}}>Driver</button></NavLink>
-                    <NavLink to ='/ride_requests'><button className ="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem'}}>Ride Requests List</button></NavLink>
+                    <NavLink to ='/driver'><button className ="btn btn-primary btn-sm" type="button" id='buttonSpace'>Driver</button></NavLink>
+                    <NavLink to ='/ride_requests'><button className ="btn btn-primary btn-sm" type="button" id='buttonSpace'>Ride Requests List</button></NavLink>
                   </>
                 ):  
                 ( <>
-                    <NavLink to ='/users'><button className ="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem'}}>Drivers List</button></NavLink>
-                    <NavLink to ='/customer'><button className ="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem'}}>Customer</button></NavLink>
+                    <NavLink to ='/users'><button className ="btn btn-primary btn-sm" type="button" id='buttonSpace'>Drivers List</button></NavLink>
+                    <NavLink to ='/customer'><button className ="btn btn-primary btn-sm" type="button" id='buttonSpace'>Customer</button></NavLink>
                   </>
                 )
               }
-              <span style={{color:'white', fontSize:'1.4rem', marginLeft:'1rem'}}>Hello! {props.currentUser.first_name} {props.currentUser.last_name}</span>
-              <button onClick={handleSignOutButtonClick} className="btn btn-danger btn-sm" style={{marginLeft:'1rem'}}>Sign Out
+              <span className='username'>Hello! {props.currentUser.first_name} {props.currentUser.last_name}</span>
+              <button onClick={handleSignOutButtonClick} className="btn btn-danger btn-sm" id='buttonSpace'>Sign Out
               </button>  
             </>
           ):
           (
             <>
-              <NavLink to='/sign_in'><button className="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem'}}>SignIn</button></NavLink>
-              <NavLink to='/sign_up/driver'> <button className="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem'}}>SignUp As Driver</button></NavLink>
-              <NavLink to='/sign_up/customer'><button className="btn btn-primary btn-sm" type="button" style={{marginLeft:'1rem'}}>SignUp As Customer</button></NavLink>
+              <NavLink to='/sign_in'><button className="btn btn-primary btn-sm" type="button" id='buttonSpace'>SignIn</button></NavLink>
+              <NavLink to='/sign_up/driver'> <button className="btn btn-primary btn-sm" type="button" id='buttonSpace'>SignUp As Driver</button></NavLink>
+              <NavLink to='/sign_up/customer'><button className="btn btn-primary btn-sm" type="button" id='buttonSpace'>SignUp As Customer</button></NavLink>
             </>
           )
         }

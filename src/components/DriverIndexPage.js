@@ -21,14 +21,14 @@ class DriverIndexPage extends Component {
   }
   render() { 
     return ( 
-      <main className = "bgImage">
-        <h3 style={{textAlign: 'center', color:'black',border:' 1.5px solid black',fontFamily:'serif', backgroundColor:'white'}}>Drivers Nearby :</h3>
-        <ol style={{ marginLeft:'1rem', fontSize:'1.3rem',color:'white', margin:'0rem'}} >
+      <main className="bgImage">
+        <h3 className='headerStyle'>Drivers Nearby</h3>
+        <ol className='list'>
           {
             this.state.users.map(user => {  
               return(
                 <li key={user.id}>
-                  <u><Link key={user.id} to={`/users/${user.id}`} style= {{color:'#ffbf00'}} > {user.first_name} {user.last_name}</Link></u>
+                  <u><Link key={user.id} to={`/users/${user.id}`} className='driverName' > {user.first_name} {user.last_name}</Link></u>
                   <GoogleAPI {...user} />
                   <br/> 
                 </li>

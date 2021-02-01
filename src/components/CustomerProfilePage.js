@@ -1,12 +1,7 @@
 import React , {Component} from 'react';
-import {Session} from '../requests';
-import {RideRequest} from '../requests';
-import  {User} from '../requests';
+import {Session, RideRequest, User} from '../requests';
 import Table from 'react-bootstrap/Table'
-import { BiCurrentLocation} from "react-icons/bi";
-import { GoLocation} from "react-icons/go";
-import { CgMail} from "react-icons/cg";
-import { AiFillPhone} from "react-icons/ai";
+import { BiCurrentLocation, BiEnvelope, BiPhoneCall, BiMap} from "react-icons/bi";
 
 class CustomerProfilePage extends Component {
   constructor(props){
@@ -47,19 +42,20 @@ class CustomerProfilePage extends Component {
   render(){
     return(   
       <main className='bgImage'>     
-        <h3 style={{textAlign: 'center', color:'black',border:' 1.5px solid black', backgroundColor:'white',fontFamily:'serif'}}>Your Profile Page</h3>
-        <div style={{color:'white', marginLeft:'1.5rem'}}>
-            <p key={this.state.customer.id}> </p>
-            <h5 style={{color:'black', fontSize:'1.5rem'}}> {this.state.customer.first_name} {this.state.customer.last_name}</h5>
-            <p><BiCurrentLocation /> {this.state.customer.address}</p>
-            <p><GoLocation /> {this.state.customer.destination_address}</p>
-            <p><CgMail /> {this.state.customer.email}</p> 
-            <p><AiFillPhone/>  {this.state.customer.phone_number} </p>  
+        <h3 className='headerStyle'>Your Profile Page</h3>   
+        <div className='pfList'>
+          <p key={this.state.customer.id}> </p>
+          <h5 className= 'pfName'> {this.state.customer.first_name} {this.state.customer.last_name}</h5>
+          <p><BiCurrentLocation /> {this.state.customer.address}</p>
+          <p><BiMap /> {this.state.customer.destination_address}</p>
+          <p><BiEnvelope /> {this.state.customer.email}</p> 
+          <p><BiPhoneCall/>  {this.state.customer.phone_number}</p>  
         </div>
-        <div style={{ padding:'22px'}}>
-          <h5 style={{color:'black'}}><u>Ride Request List</u></h5>
+
+        <div className='tableStyle'>
+          <h5 className='title'><u>Ride Request List</u></h5>
           <Table striped bordered hover variant="dark">
-            <thead  style= {{fontSize:'.8rem'}}>
+            <thead className='tableList'>
               <tr>
                 <th>S.N</th>
                 <th>First Name</th>
@@ -70,7 +66,7 @@ class CustomerProfilePage extends Component {
                 <th>Status</th>     
               </tr>
             </thead>
-            <tbody style= {{fontSize:'.8rem'}}> 
+            <tbody className='tableList'> 
               {this.state.ride_requests.map((ride_request,index) => {
                 if(this.state.users[index]) {
                   return (

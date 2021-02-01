@@ -8,4 +8,117 @@
   background-image: url(./style/image/bg.jpg);
   width:100%;
 }
+.bgImg{
+  background-image: url(./style/image/bg.jpg);
+  width:100%;
+  height:320px;
+}
 
+.headerStyle{
+text-align: center;
+color: black;
+border: 1.5px solid black;
+background-color: white;
+font-family: serif;
+}
+
+.title{
+ color: black;
+}
+.list{
+  margin-left: 1rem; font-size: 1.3rem;color: white; margin: 0rem;
+}
+.rideRequestForm{
+  padding: 2rem;
+  font-size: 1.3rem;
+}
+.carIcon{
+  color: orange;
+  width: 2rem;
+  height: 2.5rem;
+}
+.appName{
+  font-size: 28px;
+  color: white;
+  margin-left: .3rem;
+}
+.navStyle{
+  float: right;
+}
+
+#buttonSpace{
+  margin-left: 1rem;
+}
+.username{
+  color: white;
+  font-size: 1.4rem;
+  margin-left: 1rem;
+}
+.pfName{
+  font-size: 1.5rem;
+  color: black;
+}
+.pfList{
+  color: white;
+  margin-left: 1.5rem;
+}
+
+.tableList{
+  font-size: .8rem;
+}
+
+.tableStyle{
+  padding: 22px;
+}
+
+.reviewIcon{
+  font-size: 25px;
+}
+
+.reviewList{
+  padding: 22px;
+  color: white;
+}
+.reviewPerson{
+  margin-left: 1rem;
+  color: #ffbf00;
+  font-size: 1.2rem;
+}
+.reviewForm{
+  font-size: 1.2rem;
+}
+.padding-10{
+  padding: 10px;
+}
+.reviewDate{
+  margin-left: .8rem;
+}
+.reviewBody{
+  margin-left: 2.6rem;
+}
+.driverName{
+  color: #ffbf00;
+}
+#button-s{
+  margin-top: -1.3rem;
+  margin-left: .3rem;
+}
+#button-rr{
+  margin-left: 11.7rem;
+}
+#sign-style{
+ color: white
+}
+.sign-heading{
+  margin-left: 2rem;
+  padding-top: 1rem;
+}
+.sign-form{
+  padding: 2rem;
+}
+#s-in-button{
+  margin-left: 16.5rem;
+}
+#s-up-button{
+  margin-left: 20.1rem;
+}
