@@ -74,6 +74,10 @@ font-family: serif;
 .reviewIcon{
   font-size: 25px;
 }
+.ratingStyle{
+  margin-left: 2.5rem;
+}
+
 
 .reviewList{
   padding: 22px;

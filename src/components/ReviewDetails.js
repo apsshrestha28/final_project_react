@@ -1,5 +1,6 @@
 import React from 'react';
 import {BsPersonSquare} from "react-icons/bs";
+import StarRating from './StarRating';
 
 const ReviewDetails = (props)=>{
   const body = props.body;
@@ -11,12 +12,12 @@ const ReviewDetails = (props)=>{
     <div className='padding-10'>
       <BsPersonSquare className='reviewIcon'/>
       <span className='reviewPerson'>
-        <u>{customer}</u>
-        {rating}
+        <u>{customer}</u> 
       </span>
       <small className='reviewDate'>{created_at.toLocaleString()}</small>
+      <p className='ratingStyle'><StarRating max={5} current={rating} /></p>
       <p className='reviewBody'>{body}</p>
-     
+   
     </div>
   )
 }
