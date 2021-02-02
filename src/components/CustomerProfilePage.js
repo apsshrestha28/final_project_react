@@ -57,7 +57,6 @@ class CustomerProfilePage extends Component {
           <Table striped bordered hover variant="dark">
             <thead className='tableList'>
               <tr>
-                <th>S.N</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Address</th>
@@ -67,14 +66,19 @@ class CustomerProfilePage extends Component {
               </tr>
             </thead>
             <tbody className='tableList'> 
-              {this.state.ride_requests.map((ride_request,index) => {
-                if(this.state.users[index]) {
+              {this.state.ride_requests.map((ride_request) => {
+                let requiredUser;
+                {this.state.users.map(element => {
+                  if(element.id === ride_request.user_id) {
+                    requiredUser = element;
+                  }
+                })}
+                if(requiredUser) {
                   return (
                     <tr key={ride_request.id}>
-                      <td>{index + 1} </td>
-                      <td>{this.state.users[index].first_name}</td>
-                      <td>{this.state.users[index].last_name}</td>
-                      <td>{this.state.users[index].address} </td>
+                      <td>{requiredUser.first_name}</td>
+                      <td>{requiredUser.last_name}</td>
+                      <td>{requiredUser.address} </td>
                       <td>{ride_request.ride_date}</td>
                       <td>{ride_request.ride_time.substring(11,16)}</td>
                       <td>{ride_request.status}</td>         

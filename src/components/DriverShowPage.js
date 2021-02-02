@@ -28,8 +28,8 @@ class DriverShowPage extends Component {
                 reviews: reviews
               }
             })
-            reviews.map(reviews => {
-              Customer.show(reviews.customer_id)
+            reviews.map(review => {
+              Customer.show(review.customer_id)
                 .then(customer => {
                   this.setState(previousState => {
                     return {
@@ -46,7 +46,7 @@ class DriverShowPage extends Component {
     const formData = new FormData(event.currentTarget);
     const params = {
       body: formData.get('body'),
-      rating: 5,
+      rating: formData.get('rating'),
       user_id: this.state.user.id
     };
       Review.create(params)
@@ -73,15 +73,30 @@ class DriverShowPage extends Component {
               <Link to={`/users/${this.state.user.id}/ride_requests`}><button className="btn btn-primary btn" type="button"> RIDE REQUEST </button></Link>
             </div>
 
-            <div className='padding-10'>     
+            <div className='padding-10'>              
               <h5 className='title'><u>Write a review</u></h5>
-              <form className='reviewForm' onSubmit={this.handleSubmit} >    
+              <form className='reviewForm' onSubmit={this.handleSubmit} >  
+                <div className='rating'> 
+                  <input type='radio' name='rating' value='5' id='5' />
+                    <label htmlFor='5'>☆</label> 
+                  <input type='radio' name='rating' value='4' id='4' />
+                    <label htmlFor='4'>☆</label> 
+                  <input type='radio' name='rating' value='3' id='3' />
+                    <label htmlFor='3'>☆</label> 
+                  <input type='radio' name='rating' value='2' id='2' />
+                    <label htmlFor='2'>☆</label> 
+                  <input type='radio' name='rating' value='1' id='1' />
+                    <label htmlFor='1'>☆</label>
+                </div>  
+                
                 <textarea name='body' id='body' cols = '40' rows = '1'></textarea>
+                
                 <button className="btn btn-primary btn-sm" id='button-s' type="submit">Submit</button>                               
-              </form>  
-              <br/>
+              </form> 
+            </div>
+            <div className='padding-10'>   
               <h6 className='title'><u>Reviews</u></h6>
-              <ReviewList reviews={this.state.reviews} customers={this.state.customers}/>
+                <ReviewList reviews={this.state.reviews} customers={this.state.customers}/>
             </div>
         </div>
       </main> 

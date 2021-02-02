@@ -62,7 +62,6 @@ class DriverRideRequestPage extends Component {
           <Table striped bordered hover variant="dark">
             <thead className='tableList'>
               <tr>
-                <th>S.N</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Address</th>
@@ -75,22 +74,29 @@ class DriverRideRequestPage extends Component {
             </thead>
 
             <tbody className='tableList'> 
-              {this.state.ride_requests.filter(a => a.status === '').map((ride_request, index) => {  
-                if(this.state.customers[index]){ 
-                  return(
-                    <tr key={ride_request.id}>
-                      <td>{index + 1} </td>
-                      <td>{this.state.customers[index].first_name}</td>
-                      <td>{this.state.customers[index].last_name}</td>
-                      <td>{this.state.customers[index].address}</td>
-                      <td>{this.state.customers[index].destination_address}</td>
-                      <td>{ride_request.ride_date}</td>
-                      <td>{ride_request.ride_time.substring(11,16)}</td>
-                      <td><button onClick={() => this.acceptRequest(ride_request.id, 'accepted')} className= 'btn btn-success btn-sm'>Accept</button></td>
-                      <td><button onClick={() => this.acceptRequest(ride_request.id , 'declined')} className= 'btn btn-danger btn-sm'>Decline</button></td>           
-                    </tr>
-                  )
-                }
+              {this.state.ride_requests
+                .filter(a => a.status === '')
+                  .map(ride_request => {  
+                    let requiredCustomer;
+                    {this.state.customers.map(customer => {
+                      if(customer.id === ride_request.customer_id) {
+                        requiredCustomer = customer;
+                      }
+                    })}
+                    if(requiredCustomer){ 
+                      return(
+                        <tr key={ride_request.id}>
+                          <td>{requiredCustomer.first_name}</td>
+                          <td>{requiredCustomer.last_name}</td>
+                          <td>{requiredCustomer.address}</td>
+                          <td>{requiredCustomer.destination_address}</td>
+                          <td>{ride_request.ride_date}</td>
+                          <td>{ride_request.ride_time.substring(11,16)}</td>
+                          <td><button onClick={() => this.acceptRequest(ride_request.id, 'accepted')} className= 'btn btn-success btn-sm'>Accept</button></td>
+                          <td><button onClick={() => this.acceptRequest(ride_request.id , 'declined')} className= 'btn btn-danger btn-sm'>Decline</button></td>           
+                        </tr>
+                      )
+                    }
               })}       
             </tbody>
           </Table>                     
@@ -99,7 +105,6 @@ class DriverRideRequestPage extends Component {
           <Table striped bordered hover variant="dark">
             <thead className='tableList'>
               <tr>
-                <th>S.N</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Address</th>
@@ -109,20 +114,27 @@ class DriverRideRequestPage extends Component {
               </tr>
             </thead>
             <tbody className='tableList'> 
-              {this.state.ride_requests.filter(a => a.status === 'accepted').map((ride_request, index) => {  
-                if(this.state.customers[index]){ 
-                  return(
-                    <tr key={ride_request.id}>
-                      <td>{index + 1} </td>
-                      <td>{this.state.customers[index].first_name}</td>
-                      <td>{this.state.customers[index].last_name}</td>
-                      <td>{this.state.customers[index].address}</td>
-                      <td>{this.state.customers[index].destination_address}</td>
-                      <td>{ride_request.ride_date}</td>
-                      <td>{ride_request.ride_time.substring(11,16)}</td>        
-                    </tr>
-                  )
-                }
+              {this.state.ride_requests
+                .filter(a => a.status === 'accepted')
+                  .map(ride_request => {  
+                  let requiredCustomer;
+                  {this.state.customers.map(customer => {
+                    if(customer.id === ride_request.customer_id) {
+                      requiredCustomer = customer;
+                    }
+                  })}
+                  if(requiredCustomer){ 
+                    return(
+                      <tr key={ride_request.id}>
+                        <td>{requiredCustomer.first_name}</td>
+                        <td>{requiredCustomer.last_name}</td>
+                        <td>{requiredCustomer.address}</td>
+                        <td>{requiredCustomer.destination_address}</td>
+                        <td>{ride_request.ride_date}</td>
+                        <td>{ride_request.ride_time.substring(11,16)}</td>        
+                      </tr>
+                    )
+                  }
               })}       
             </tbody>
           </Table>                     

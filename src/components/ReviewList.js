@@ -9,14 +9,21 @@ const ReviewList = (props) => {
     <ul style= {{listStyle:'none'}}>
       {
         reviews?
-          reviews.map((review,index) => {
-            if(customers[index]){
+          reviews.map((review) => {
+            let requiredCustomer;
+            customers.map(element => {
+              if(element.id === review.customer_id){
+                  requiredCustomer = element;
+              }
+            });
+            if(requiredCustomer){
               return (      
                 <li key={review.id}>
                   <ReviewDetails
                     id={review.id}
-                    customer = {customers[index].first_name}
+                    customer = {requiredCustomer.first_name}
                     body={review.body}
+                    rating={review.rating}
                     created_at={new Date(review.created_at).toDateString() }
                   />
                 </li>

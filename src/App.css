@@ -122,3 +122,37 @@ font-family: serif;
 #s-up-button{
   margin-left: 20.1rem;
 }
+
+.rating {
+  display: flex;
+  flex-direction:row-reverse;
+  float:left;
+
+}
+
+.rating>input {
+  display: none
+}
+
+.rating>label {
+  position: relative;
+  width: 2rem;
+  font-size: 2rem;
+  color: #FFD600;
+  cursor: pointer
+}
+
+.rating>label::before {
+  content: "\2605";
+  position: absolute;
+  opacity: 0
+}
+
+.rating>label:hover:before,
+.rating>label:hover~label:before {
+  opacity: 1 !important
+}
+
+.rating>input:checked~label:before {
+  opacity: 1
+}
