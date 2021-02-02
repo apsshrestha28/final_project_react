@@ -13,6 +13,13 @@
   width:100%;
   height:320px;
 }
+.errorImage{
+  background-image: url(./style/image/404.jpg);
+  max-width: 100%;
+  background-repeat: no-repeat;
+  height:460px;
+  
+}
 
 .headerStyle{
 text-align: center;

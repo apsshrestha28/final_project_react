@@ -13,6 +13,7 @@ import RideRequestPage from './components/RideRequestPage';
 import DriverProfilePage from './components/DriverProfilePage';
 import DriverShowPage from './components/DriverShowPage';
 import DriverRideRequestPage from './components/DriverRideRequestPage';
+import NotFoundPage from './components/NotFoundPage';
 import './App.css';
 
 class App extends Component {
@@ -81,7 +82,8 @@ class App extends Component {
             <Route exact path = '/users/:id' component = {DriverShowPage}/>
             <Route exact path = '/users/:id/ride_requests' component= {RideRequestPage} />
             <Route exact path = '/ride_requests' component= {DriverRideRequestPage} />
-          
+            <Route component={NotFoundPage} />
+
           </Switch>
         </BrowserRouter>     
       </div>
