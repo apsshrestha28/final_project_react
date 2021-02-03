@@ -1,8 +1,10 @@
 
 .container{
   background-image: url(./style/image/rideshare.png);
-  height:460px;
-  width:100%;
+  height:410px;
+  background-repeat: no-repeat;
+  background-size:cover;
+  width: 100%;
 }
 .bgImage{
   background-image: url(./style/image/bg.jpg);
@@ -63,7 +65,9 @@ font-family: serif;
 }
 .pfName{
   font-size: 1.5rem;
-  color: black;
+  color:#ffbf00;
+  font-family: serif;
+  font-weight: bold;
 }
 .pfList{
   color: white;
@@ -94,6 +98,7 @@ font-family: serif;
   margin-left: 1rem;
   color: #ffbf00;
   font-size: 1.2rem;
+  font-family: serif;
 }
 .reviewForm{
   font-size: 1.2rem;
@@ -126,12 +131,6 @@ font-family: serif;
 }
 .sign-form{
   padding: 2rem;
-}
-#s-in-button{
-  margin-left: 16.5rem;
-}
-#s-up-button{
-  margin-left: 20.1rem;
 }
 
 .rating {

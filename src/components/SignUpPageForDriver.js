@@ -81,7 +81,7 @@ import { User } from "../requests";
           />
         </div>
         
-        <button type="submit" className="btn btn-primary btn" id='s-up-button'>Sign Up</button>
+        <button type="submit" className="btn btn-primary btn-lg">Sign Up</button>
       </form>
     </main>
   );

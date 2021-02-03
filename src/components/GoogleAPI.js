@@ -25,6 +25,7 @@ export default class Locations extends Component{
               {latitude: currentCustomer.latitude, longitude: currentCustomer.longitude},
               {latitude: this.state.destinationLat, longitude: this.state.destinationLong}
             );
+            
             this.setState({
               distance:  _.round((dis/1000),1)
             });

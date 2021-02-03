@@ -34,9 +34,9 @@ const RideRequestPage = (props) => {
           <label htmlFor="ride_time" className="col-sm-3 col-form-label">Select Time*</label>
           <input type="time" name="ride_time" required= "required" />
         </div>
-
-        <button type="submit" className="btn btn-primary btn" id='button-rr'>Submit</button>
-
+       
+        <button type="submit" className="btn btn-primary btn-lg" >Submit Ride Request</button>
+        
       </form>
     </main>
     ); 
