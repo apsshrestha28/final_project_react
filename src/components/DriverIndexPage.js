@@ -7,7 +7,8 @@ class DriverIndexPage extends Component {
   constructor(props){
     super(props);
     this.state = {
-      users: []
+      users: [],
+      check: []
     }    
   }
   componentDidMount() {
@@ -16,22 +17,24 @@ class DriverIndexPage extends Component {
         this.setState((state) => {
           return {
            users: users
-          }})
-      })   
+          }
+        
+        })  
+      })  
+      console.log(this.state.users); 
   }
+
   render() { 
     return ( 
       <main className="bgImage">
-        <h3 className='headerStyle'>Drivers Nearby</h3>
+        <h3 className='headerStyle'>Drivers Within 10 km :</h3>
         <ol className='list'>
           {
             this.state.users.map(user => {  
-              return(
-                <li key={user.id}>
-                  <u><Link key={user.id} to={`/users/${user.id}`} className='driverName' > {user.first_name} {user.last_name}</Link></u>
-                  <GoogleAPI {...user} />
-                  <br/> 
-                </li>
+              return(   
+                <div>
+                  <GoogleAPI {...user} />  
+                </div>             
               )
             })
           }

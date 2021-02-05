@@ -16,7 +16,7 @@
   height:320px;
 }
 .errorImage{
-  background-image: url(./style/image/404.jpg);
+  background-image: url(./style/image/error.jpg);
   max-width: 100%;
   background-repeat: no-repeat;
   height:460px;
@@ -136,7 +136,7 @@ font-family: serif;
 .rating {
   display: flex;
   flex-direction:row-reverse;
-  float:left;
+  float: left;
 
 }
 
