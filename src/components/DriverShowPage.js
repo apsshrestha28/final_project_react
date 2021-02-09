@@ -43,6 +43,7 @@ class DriverShowPage extends Component {
   }
 
   handleSubmit(event){
+    event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const params = {
       body: formData.get('body'),
@@ -51,26 +52,27 @@ class DriverShowPage extends Component {
     };
       Review.create(params)
        .then((review)=> {
-        this.props.history.push(`/users/${this.state.user.id}`)
-
+        alert("review created");
+        window.location.reload(true);
       })
   }
   render() { 
+    const {user, reviews, customers} = this.state;
     return ( 
       <main className='bgImage'>
           <h3 className ='headerStyle'>Driver Details</h3>
           <div className='pfList'>
             <DriverDetails
-              first_name= {this.state.user.first_name}
-              last_name= {this.state.user.last_name}
-              address= {this.state.user.address}
-              email= {this.state.user.email}
-              phone_number= {this.state.user.phone_number}
-              description= {this.state.user.description}
+              first_name= {user.first_name}
+              last_name= {user.last_name}
+              address= {user.address}
+              email= {user.email}
+              phone_number= {user.phone_number}
+              description= {user.description}
             /> 
             <div className='padding-10'>
               <h5 className='title'><u>Make a ride request</u></h5>
-              <Link to={`/users/${this.state.user.id}/ride_requests`}><button className="btn btn-primary btn" type="button"> RIDE REQUEST </button></Link>
+              <Link to={`/users/${user.id}/ride_requests`}><button className="btn btn-primary btn" type="button"> RIDE REQUEST </button></Link>
             </div>
 
             <div className='padding-10'>              
@@ -96,7 +98,7 @@ class DriverShowPage extends Component {
             </div>
             <div className='padding-10'>   
               <h6 className='title'><u>Reviews</u></h6>
-                <ReviewList reviews={this.state.reviews} customers={this.state.customers}/>
+                <ReviewList reviews={reviews} customers={customers}/>
             </div>
         </div>
       </main> 

@@ -1,10 +1,7 @@
 import React from 'react';
 import ReviewDetails from './ReviewDetails';
 
-const ReviewList = (props) => {
-  const reviews = props.reviews;
-  const customers = props.customers;
- 
+const ReviewList = ({reviews, customers}) => {
   return(
     <ul style= {{listStyle:'none'}}>
       {

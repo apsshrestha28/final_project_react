@@ -43,21 +43,22 @@ class DriverProfilePage extends Component {
   }
   
   render(){
+    const {user, reviews, customers} = this.state;
     return(
       <main className='bgImage'>
         <h3 className='headerStyle'>Your Profile Page</h3>   
         <div className='pfList'>
-            <h5 className='pfName'> {this.state.user.first_name} {this.state.user.last_name}</h5>
-            <p> {this.state.user.description} </p>
-            <p><BiCurrentLocation /> {this.state.user.address} </p>
-            <p><BiEnvelope /> {this.state.user.email}</p> 
-            <p><BiPhoneCall/> {this.state.user.phone_number} </p>       
-            <p>< IoCardSharp/> {this.state.user.driver_license_number} </p>
+            <h5 className='pfName'> {user.first_name} {user.last_name}</h5>
+            <p> {user.description} </p>
+            <p><BiCurrentLocation /> {user.address} </p>
+            <p><BiEnvelope /> {user.email}</p> 
+            <p><BiPhoneCall/> {user.phone_number} </p>       
+            <p>< IoCardSharp/> {user.driver_license_number} </p>
         </div>
 
         <div className='reviewList'>
           <h5 className='title'><u>Reviews</u></h5>
-            <ReviewList reviews={this.state.reviews} customers={this.state.customers}/>
+            <ReviewList reviews={reviews} customers={customers}/>
         </div>   
       </main>
     )

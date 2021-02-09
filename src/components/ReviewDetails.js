@@ -2,11 +2,7 @@ import React from 'react';
 import {BsPersonSquare} from "react-icons/bs";
 import StarRating from './StarRating';
 
-const ReviewDetails = (props)=>{
-  const body = props.body;
-  const created_at = props.created_at;
-  const customer = props.customer;
-  const rating = props.rating;
+const ReviewDetails = ({body, created_at, customer, rating})=>{
   
   return(
     <div className='padding-10'>

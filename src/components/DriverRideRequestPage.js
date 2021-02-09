@@ -53,6 +53,7 @@ class DriverRideRequestPage extends Component {
   }
  
   render(){
+    const {ride_requests, customers} = this.state;
     return(
       <main className='bgImage'>
         <h3 className='headerStyle'>Ride Requests Information</h3>        
@@ -74,11 +75,11 @@ class DriverRideRequestPage extends Component {
             </thead>
 
             <tbody className='tableList'> 
-              {this.state.ride_requests
+              {ride_requests
                 .filter(a => a.status === '')
                   .map(ride_request => {  
                     let requiredCustomer;
-                    {this.state.customers.map(customer => {
+                    {customers.map(customer => {
                       if(customer.id === ride_request.customer_id) {
                         requiredCustomer = customer;
                       }
@@ -114,11 +115,11 @@ class DriverRideRequestPage extends Component {
               </tr>
             </thead>
             <tbody className='tableList'> 
-              {this.state.ride_requests
+              {ride_requests
                 .filter(a => a.status === 'accepted')
                   .map(ride_request => {  
                   let requiredCustomer;
-                  {this.state.customers.map(customer => {
+                  {customers.map(customer => {
                     if(customer.id === ride_request.customer_id) {
                       requiredCustomer = customer;
                     }

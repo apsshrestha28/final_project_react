@@ -38,17 +38,27 @@ export default class Locations extends Component{
   }            
         
   render(){
-      return(  
-        <div>
-          {this.state.distance > 0 && this.state.distance < 10  ?
-          <li key={this.props.id}>
-            <u><Link key={this.props.id} to={`/users/${this.props.id}`} className='driverName'> {this.props.first_name} {this.props.last_name}</Link></u>
-            <div><button>{this.state.distance} km away</button></div>
+    const {distance} = this.state;
+    const {id, first_name, last_name} = this.props;
+    return(  
+      <div>
+        {distance > 0 && distance < 10 &&
+          <li key={id}>
+            <u>
+              <Link 
+                key={id}
+                to={`/users/${id}`}
+                className='driverName'> 
+                {first_name} {last_name}
+              </Link>
+            </u>
+            <div>
+              <button>{distance} km away</button>
+            </div>
             <br/>
-          </li>
-          : ''   
-          }     
-        </div>      
-      );
+          </li> 
+        }     
+      </div>      
+    );
   }
 }

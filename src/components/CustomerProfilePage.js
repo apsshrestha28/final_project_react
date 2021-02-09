@@ -40,16 +40,18 @@ class CustomerProfilePage extends Component {
       })
   }
   render(){
+    const {customer, ride_requests, users} = this.state;
+
     return(   
       <main className='bgImage'>     
         <h3 className='headerStyle'>Your Profile Page</h3>   
         <div className='pfList'>
-          <p key={this.state.customer.id}> </p>
-          <h5 className= 'pfName'> {this.state.customer.first_name} {this.state.customer.last_name}</h5>
-          <p><BiCurrentLocation /> {this.state.customer.address}</p>
-          <p><BiMap /> {this.state.customer.destination_address}</p>
-          <p><BiEnvelope /> {this.state.customer.email}</p> 
-          <p><BiPhoneCall/>  {this.state.customer.phone_number}</p>  
+          <p key={customer.id}> </p>
+          <h5 className= 'pfName'> {customer.first_name} {customer.last_name}</h5>
+          <p><BiCurrentLocation /> {customer.address}</p>
+          <p><BiMap /> {customer.destination_address}</p>
+          <p><BiEnvelope /> {customer.email}</p> 
+          <p><BiPhoneCall/>  {customer.phone_number}</p>  
         </div>
 
         <div className='tableStyle'>
@@ -66,9 +68,9 @@ class CustomerProfilePage extends Component {
               </tr>
             </thead>
             <tbody className='tableList'> 
-              {this.state.ride_requests.map((ride_request) => {
+              {ride_requests.map((ride_request) => {
                 let requiredUser;
-                {this.state.users.map(element => {
+                {users.map(element => {
                   if(element.id === ride_request.user_id) {
                     requiredUser = element;
                   }
