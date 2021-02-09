@@ -3,6 +3,7 @@ import {User, Review, Customer} from '../requests';
 import DriverDetails from './DriversDetails';
 import ReviewList from './ReviewList';
 import {Link} from 'react-router-dom';
+import {toast} from 'react-toastify';
 
 class DriverShowPage extends Component {
   constructor(props){
@@ -52,8 +53,8 @@ class DriverShowPage extends Component {
     };
       Review.create(params)
        .then((review)=> {
-        alert("review created");
-        window.location.reload(true);
+          toast.success('Thank you for your review 😊 ');
+          setTimeout(function() {window.location.reload(true);}, 3000)
       })
   }
   render() { 

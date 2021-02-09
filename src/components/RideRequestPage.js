@@ -1,5 +1,6 @@
 import React from 'react';
 import {RideRequest} from '../requests';
+import {toast} from 'react-toastify';
 
 const RideRequestPage = (props) => {
   function handleSubmit(event) {
@@ -16,9 +17,12 @@ const RideRequestPage = (props) => {
 
     RideRequest.create(newRideRequest)
       .then(res => {
-        alert("ride request created");
-        window.location.reload(true);
+       
+        toast.success(`Ride request 🚗 🚗 created ! `);
+        setTimeout(function(){ 
+          window.location.reload(true);}, 3000);
       })
+     
   }
   return (
     <main className='bgImage' style={{color:'white'}}>

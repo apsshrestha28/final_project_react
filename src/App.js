@@ -15,6 +15,8 @@ import DriverShowPage from './components/DriverShowPage';
 import DriverRideRequestPage from './components/DriverRideRequestPage';
 import NotFoundPage from './components/NotFoundPage';
 import './App.css';
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class App extends Component {
   constructor(props){
@@ -65,6 +67,7 @@ class App extends Component {
     return (
       <div className="App">      
         <BrowserRouter>
+        <ToastContainer/>
         <Navbar currentUser={this.state.user} destroySession={this.destroySession}/>
           <Switch>
           
