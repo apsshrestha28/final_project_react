@@ -79,16 +79,8 @@ class App extends Component {
               isAuth={user}
               component={DriverIndexPage}
             /> 
-            <AuthRoute exact
-              path = '/users/:id'
-              isAuth = {user} 
-              component = {DriverShowPage}
-            />
-            <AuthRoute exact 
-              path = '/users/:id/ride_requests' 
-              isAuth = {user} 
-              component= {RideRequestPage} 
-            />
+            <Route exact path = '/users/:id' component = {DriverShowPage}/>
+            <Route exact path = '/users/:id/ride_requests' component= {RideRequestPage} />
             <Route exact path = '/customer' component= {CustomerProfilePage} />
             <Route exact path = '/driver' component= {DriverProfilePage} />
             <Route exact path = '/ride_requests' component= {DriverRideRequestPage} />

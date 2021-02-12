@@ -133,18 +133,18 @@ font-family: serif;
   padding: 2rem;
 }
 
-.rating {
+#rating {
   display: flex;
   flex-direction:row-reverse;
   float: left;
 
 }
 
-.rating>input {
+#rating>input {
   display: none
 }
 
-.rating>label {
+#rating>label {
   position: relative;
   width: 2rem;
   font-size: 2rem;
@@ -152,17 +152,17 @@ font-family: serif;
   cursor: pointer
 }
 
-.rating>label::before {
+#rating>label::before {
   content: "\2605";
   position: absolute;
   opacity: 0
 }
 
-.rating>label:hover:before,
-.rating>label:hover~label:before {
+#rating>label:hover:before,
+#rating>label:hover~label:before {
   opacity: 1 !important
 }
 
-.rating>input:checked~label:before {
+#rating>input:checked~label:before {
   opacity: 1
 }

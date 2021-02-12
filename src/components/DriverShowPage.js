@@ -79,7 +79,7 @@ class DriverShowPage extends Component {
             <div className='padding-10'>              
               <h5 className='title'><u>Write a review</u></h5>
               <form className='reviewForm' onSubmit={this.handleSubmit} >  
-                <div className='rating'> 
+                <div id='rating'> 
                   <input type='radio' name='rating' value='5' id='5' />
                     <label htmlFor='5'>☆</label> 
                   <input type='radio' name='rating' value='4' id='4' />
