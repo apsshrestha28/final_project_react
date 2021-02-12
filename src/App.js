@@ -64,27 +64,29 @@ class App extends Component {
   }
 
   render(){
+    const {user} = this.state;
+
     return (
       <div className="App">      
         <BrowserRouter>
         <ToastContainer/>
-        <Navbar currentUser={this.state.user} destroySession={this.destroySession}/>
+        <Navbar currentUser={user} destroySession={this.destroySession}/>
           <Switch>
           
             <Route exact path = '/' component = {WelcomePage}/>
             <AuthRoute exact
               path='/users'
-              isAuth={this.state.user}
+              isAuth={user}
               component={DriverIndexPage}
             /> 
             <AuthRoute exact
               path = '/users/:id'
-              isAuth = {this.state.user} 
+              isAuth = {user} 
               component = {DriverShowPage}
             />
             <AuthRoute exact 
               path = '/users/:id/ride_requests' 
-              isAuth = {this.state.user} 
+              isAuth = {user} 
               component= {RideRequestPage} 
             />
             <Route exact path = '/customer' component= {CustomerProfilePage} />
