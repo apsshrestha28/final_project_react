@@ -30,42 +30,44 @@ import { Customer } from "../requests";
 
       <form className='sign-form' onSubmit={handleSubmit}>
         <div className="form-group row">
-          <label htmlFor="first_name" className="col-sm-3 col-form-label">First Name*</label>
+          <label htmlFor="first_name" className="col-sm-4 col-form-label">First Name*</label>
           <input type="text" name="first_name" required= "required" id="first_name" />
         </div>
 
         <div className="form-group row">
-          <label htmlFor="last_name" className="col-sm-3 col-form-label">Last Name*</label>
+          <label htmlFor="last_name" className="col-sm-4 col-form-label">Last Name*</label>
           <input type="text" name="last_name" required= "required" id="last_name" />
         </div>
         
         <div className="form-group row">
-          <label htmlFor="address" className="col-sm-3 col-form-label">Address*</label>
+          <label htmlFor="address" className="col-sm-4 col-form-label">Address*</label>
           <input type="text" name="address" required= "required" id="address" />
         </div>
+        <p><small><b>Note : </b>The address should be in this format, e.g. 2916, McBride Ave, Surrey, BC </small></p>
 
         <div className="form-group row">
-          <label htmlFor="destination_address" className="col-sm-3 col-form-label">Destination Address*</label>
+          <label htmlFor="destination_address" className="col-sm-4 col-form-label">Destination Address*</label>
           <input type="text" name="destination_address" required= "required" id="destination_address" />
         </div>
+        
       
         <div className="form-group row">
-          <label htmlFor="phone_number" className="col-sm-3 col-form-label">Phone Number*</label>
+          <label htmlFor="phone_number" className="col-sm-4 col-form-label">Phone Number*</label>
           <input type="number" name="phone_number" required= "required" id="phone_number" />
         </div>
 
         <div className="form-group row">
-          <label htmlFor="email" className="col-sm-3 col-form-label">Email*</label>
+          <label htmlFor="email" className="col-sm-4 col-form-label">Email*</label>
           <input type="email" name="email" required= "required"  id="email" />
         </div>
        
         <div className="form-group row">
-          <label htmlFor="password" className="col-sm-3 col-form-label">Password*</label>
+          <label htmlFor="password" className="col-sm-4 col-form-label">Password*</label>
           <input type="password" name="password" required= "required" id="password" />
         </div>
 
         <div className="form-group row"> 
-          <label htmlFor="password_confirmation" className="col-sm-3 col-form-label">Confirm Password*</label>
+          <label htmlFor="password_confirmation" className="col-sm-4 col-form-label">Confirm Password*</label>
           <input
             type="password"
             name="password_confirmation"
