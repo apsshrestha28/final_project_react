@@ -77,14 +77,22 @@ class App extends Component {
               isAuth={this.state.user}
               component={DriverIndexPage}
             /> 
-            <Route exact path = '/sign_in' render = {routeProps => <SignInPage handleSubmit= {this.handleSubmit} {...routeProps}/>}/>
-            <Route exact path = '/sign_up/driver' component = {SignUpPageForDriver}/>
-            <Route exact path = '/sign_up/customer' component = {SignUpPageForCustomer}/> 
+            <AuthRoute exact
+              path = '/users/:id'
+              isAuth = {this.state.user} 
+              component = {DriverShowPage}
+            />
+            <AuthRoute exact 
+              path = '/users/:id/ride_requests' 
+              isAuth = {this.state.user} 
+              component= {RideRequestPage} 
+            />
             <Route exact path = '/customer' component= {CustomerProfilePage} />
             <Route exact path = '/driver' component= {DriverProfilePage} />
-            <Route exact path = '/users/:id' component = {DriverShowPage}/>
-            <Route exact path = '/users/:id/ride_requests' component= {RideRequestPage} />
             <Route exact path = '/ride_requests' component= {DriverRideRequestPage} />
+            <Route exact path = '/sign_in' render = {routeProps => <SignInPage handleSubmit= {this.handleSubmit} {...routeProps}/>}/>
+            <Route exact path = '/sign_up/driver' component = {SignUpPageForDriver}/>
+            <Route exact path = '/sign_up/customer' component = {SignUpPageForCustomer}/>
             <Route component={NotFoundPage} />
 
           </Switch>
