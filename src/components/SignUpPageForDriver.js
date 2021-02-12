@@ -45,7 +45,7 @@ import { User } from "../requests";
           <label htmlFor="address" className="col-sm-4 col-form-label">Address*</label>
           <input type="text" name="address" required= "required" id="address" />
         </div>
-        <p><small><b>Note : </b>The address should be in this format, e.g. 2916, McBride Ave, Surrey, BC </small></p>
+        <p><small><b>Note : </b>The address should be in this format, e.g. 2916, McBride Ave/St, Surrey, BC </small></p>
 
         <div className="form-group row">
           <label htmlFor="phone_number" className="col-sm-4 col-form-label">Phone Number*</label>
