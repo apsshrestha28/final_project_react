@@ -5,6 +5,7 @@ import { FaCar} from 'react-icons/fa';
 const Navbar =(props) =>{
   function handleSignOutButtonClick() {
     props.destroySession();
+    window.location = '/';
   }
   return (
     <nav className="navbar navbar-dark bg-dark" >
