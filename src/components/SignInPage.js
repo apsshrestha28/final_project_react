@@ -25,7 +25,7 @@ const SignInPage = ({ handleSubmit, history}) => {
           <label htmlFor='password' className='col-sm-2 col-form-label'>Password*</label>
           <input id='password' type='password' name='password' required='required' />
         </div>
-        <button type="submit" className="btn btn-primary btn-lg">Sign In</button>
+        <button type="submit" className="btn btn-primary">Sign In</button>
       </form>
     </main>
   )

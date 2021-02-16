@@ -24,14 +24,12 @@ class DriverIndexPage extends Component {
     const {users} = this.state; 
     return ( 
       <main className="bgImage">
-        <h3 className='headerStyle'>Drivers Within 10 km :</h3>
+        <h3 className='headerStyle'>Drivers Within 10 km :</h3>    
         <ol className='list'>
           {
             users.map(user => {  
               return(   
-                <div>
-                  <GoogleAPI {...user} />  
-                </div>             
+                <GoogleAPI {...user} />              
               )
             })
           }

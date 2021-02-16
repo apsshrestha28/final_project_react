@@ -39,7 +39,7 @@ const RideRequestPage = (props) => {
           <input type="time" name="ride_time" required= "required" />
         </div>
        
-        <button type="submit" className="btn btn-primary btn-lg" >Submit Ride Request</button>
+        <button type="submit" className="btn btn-primary" >Submit Ride Request</button>
         
       </form>
     </main>

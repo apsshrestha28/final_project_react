@@ -73,7 +73,7 @@ class DriverShowPage extends Component {
             /> 
             <div className='padding-10'>
               <h5 className='title'><u>Make a ride request</u></h5>
-              <Link to={`/users/${user.id}/ride_requests`}><button className="btn btn-primary btn" type="button"> RIDE REQUEST </button></Link>
+              <Link to={`/users/${user.id}/ride_requests`}><button className="btn btn-primary btn" type="button"> Ride Request</button></Link>
             </div>
 
             <div className='padding-10'>              

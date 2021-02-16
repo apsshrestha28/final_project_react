@@ -11,12 +11,9 @@ export default class Locations extends Component{
       destinationLat: props.latitude,
       destinationLong: props.longitude,
       distance: []
-      
-
     }
   }
   componentDidMount(){
- 
     Customer.index()
       .then(
         customers => {
@@ -52,9 +49,9 @@ export default class Locations extends Component{
                 {first_name} {last_name}
               </Link>
             </u>
-            <div>
+            <p>
               <button>{distance} km away</button>
-            </div>
+            </p>
             <br/>
           </li> 
         }     
