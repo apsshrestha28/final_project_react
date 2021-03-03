@@ -1,4 +1,4 @@
-const BASE_URL = 'https://young-shore-98752.herokuapp.com';
+const BASE_URL = 'https://young-shore-98752.herokuapp.com/api/v1';
 
 export const User = {
   index() {
