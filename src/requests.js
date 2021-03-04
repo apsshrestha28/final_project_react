@@ -1,21 +1,17 @@
-const BASE_URL = 'https://young-shore-98752.herokuapp.com/api/v1';
+const BASE_URL = `http://young-shore-98752.herokuapp.com/api/v1`;
 
 export const User = {
   index() {
     return fetch(`${BASE_URL}/users`,{
       headers:{
         'Cache-Control':'no-cache'
-      },
-      mode: 'no-cors'
-    })
+      }})
       .then(res => res.json());
   },
   create(params) {
     return fetch(`${BASE_URL}/users` , {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      
-      mode: 'no-cors',
       body: JSON.stringify(params)
     })
     .then(res => 
@@ -32,8 +28,7 @@ export const User = {
       credentials: 'include',
       headers: {
         'Content-Type':'application/json'
-      }, 
-      mode: 'no-cors',
+      },
       body: JSON.stringify(params)
     }).then(res => res.json());
   }
@@ -45,9 +40,7 @@ export const Customer = {
     return fetch(`${BASE_URL}/customers`,{
       headers: {
         'Cache-Control': 'no-cache'
-      },
-      mode: 'no-cors',
-    }).then (res => res.json());
+      }}).then (res => res.json());
   },
   create(params) {
     return fetch(`${BASE_URL}/customers`,{
@@ -56,7 +49,6 @@ export const Customer = {
       headers: {
         'Content-Type': 'application/json'
       },
-      mode: 'no-cors',
       body: JSON.stringify(params)
     }).then(res => res.json());
   },
@@ -71,7 +63,6 @@ export const Customer = {
       headers: {
         'Content-Type': 'application/json'
       },
-      mode: 'no-cors',
       body: JSON.stringify(params)
     }).then(res => res.json)
   }
@@ -82,8 +73,7 @@ export const Review = {
     return fetch(`${BASE_URL}/users/${params.id}/reviews`,{
       headers:{
         'Cache-Control':'no-cache'
-      },
-      mode: 'no-cors'})
+      }})
       .then(res => res.json());
   },
   create(params) {
@@ -93,7 +83,6 @@ export const Review = {
       headers: {
         'Content-Type': 'application/json'
       },
-      mode: 'no-cors',
       body: JSON.stringify(params)
     }).then(res => res.json());
   }
@@ -104,17 +93,14 @@ export const RideRequest= {
     return fetch(`${BASE_URL}/ride_requests`, {
       headers: {
         'Cache-Control': 'no-cache'
-      },
-       mode: 'no-cors'
-      }).then (res => res.json());  
+      }}).then (res => res.json());  
   },
   show(params) {
     return fetch(`${BASE_URL}/users/${params.id}/ride_requests`,{
       headers:{
         'Cache-Control':'no-cache'
-      },
-      mode: 'no-cors'
-    }) .then(res => res.json());
+      }})
+      .then(res => res.json());
   },
   create(params) {
     return fetch(`${BASE_URL}/users/${params.user_id}/ride_requests`,{
@@ -122,8 +108,7 @@ export const RideRequest= {
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json'
-      }, 
-      mode: 'no-cors',
+      },
       body: JSON.stringify(params)
     }).then(res => res.json());
   },
@@ -134,7 +119,6 @@ export const RideRequest= {
       headers: {
         'Content-Type': 'application/json'
       },
-      mode: 'no-cors',
       body: JSON.stringify(params)
     }).then(res => res.json)
   }
@@ -148,7 +132,6 @@ export const Session = {
       headers: {
         'Content-Type': 'application/json'
       },
-      mode: 'no-cors',
       body: JSON.stringify(params)
     }).then(
       res => res.json()
