@@ -138,8 +138,8 @@ export const Session = {
     );
   },
   destroy() {
-    return fetch(`${BASE_URL}/sign_out`, {
-      method: 'DELETE',
+    return fetch(`${BASE_URL}/sessions`, {
+      method: 'Delete',
       credentials: 'include'
     }).then(res => res.json());
   },
