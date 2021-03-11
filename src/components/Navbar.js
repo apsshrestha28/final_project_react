@@ -3,7 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { FaCar} from 'react-icons/fa';
 
 const Navbar =(props) =>{
-  function handleSignOutButtonClick() {
+  function handleSignOutButtonClick(event) {
+    event.preventDefault();
     props.destroySession();
   }
   return (
