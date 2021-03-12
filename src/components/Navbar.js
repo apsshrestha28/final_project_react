@@ -5,6 +5,7 @@ import { FaCar} from 'react-icons/fa';
 const Navbar =(props) =>{
   function handleSignOutButtonClick(event) {
     props.destroySession();
+    window.location = '/';
   
   }
   return (
