@@ -40,9 +40,9 @@ const Navbar =(props) =>{
           ):
           (
             <>
-              <NavLink to='/sign_in'><button className="btn btn-primary btn-sm" type="button" id='buttonSpace'>SignIn</button></NavLink>
-              <NavLink to='/sign_up/driver'> <button className="btn btn-primary btn-sm" type="button" id='buttonSpace'>SignUp As Driver</button></NavLink>
-              <NavLink to='/sign_up/customer'><button className="btn btn-primary btn-sm" type="button" id='buttonSpace'>SignUp As Customer</button></NavLink>
+              <NavLink to='/sign_in'><button className="btn btn-primary btn-sm" type="button" id='buttonSpace'>Sign In</button></NavLink>
+              <NavLink to='/sign_up/driver'> <button className="btn btn-primary btn-sm" type="button" id='buttonSpace'>Sign Up As Driver</button></NavLink>
+              <NavLink to='/sign_up/customer'><button className="btn btn-primary btn-sm" type="button" id='buttonSpace'>Sign Up As Customer</button></NavLink>
             </>
           )
         }
